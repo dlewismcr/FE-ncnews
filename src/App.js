@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import "./App.css";
 import { Route, NavLink } from "react-router-dom";
 import Articles from "./components/Articles";
-import * as api from "./api.js";
+import Article from "./components/Article";
+
 const activeStyle = { color: "red" };
 
 class App extends Component {
   state = {
-    user: "toBeHardcoded",
-    articles: []
+    user: "toBeHardcoded"
   };
   render() {
     return (
@@ -31,20 +31,19 @@ class App extends Component {
         <NavLink to="/topics/cooking/articles" activeStyle={activeStyle}>
           Cooking
         </NavLink>
+        <Route exact path="/articles" render={() => <Articles topic="" />} />
         <Route
-          path="/articles"
-          render={() => <Articles articles={this.state.articles} />}
+          path="/articles/:article_id"
+          render={props => (
+            <Article articleId={props.match.params.article_id} />
+          )}
         />
-        <Route path="/topics/football/articles" render={() => <Articles />} />
-        <Route path="/topics/coding/articles" render={() => <Articles />} />
-        <Route path="/topics/cooking/articles" render={() => <Articles />} />
+        <Route
+          path="/topics/:topic/articles"
+          render={props => <Articles topic={props.match.params.topic} />}
+        />
       </div>
     );
-  }
-  componentDidMount() {
-    api.fetchArticles().then(res => {
-      this.setState({ articles: res.articles });
-    });
   }
 }
 
