@@ -18,9 +18,7 @@ class Articles extends Component {
                 <div>
                   <h3>{article.title}</h3>
                   <p>{article.body}</p>
-                  <p>
-                    Votes: {article.votes} (Open article to vote/view comments)
-                  </p>
+                  <p>Votes: {article.votes}</p>
                 </div>
               </Link>
             </div>
