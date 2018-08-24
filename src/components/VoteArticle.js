@@ -9,21 +9,13 @@ class VoteArticle extends Component {
     return (
       <div>
         <span>
-          Votes: {this.props.votes + this.state.userVote}{" "}
+          Article Votes: {this.props.votes + this.state.userVote}{" "}
           <button onClick={() => this.articleVote("up")}>Vote Up</button>{" "}
           <button onClick={() => this.articleVote("down")}>Vote Down</button>
         </span>
       </div>
     );
   }
-  // componentDidMount() {
-  //   console.log(this.props);
-  //   this.setState({
-  //     articleId: this.props.articleId
-  //     // ,
-  //     // votes: this.props.votes
-  //   });
-  // }
 
   articleVote = direction => {
     console.log(direction, this.props.articleId);
