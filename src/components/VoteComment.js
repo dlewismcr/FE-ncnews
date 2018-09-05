@@ -10,18 +10,20 @@ class VoteComment extends Component {
         <span>
           Comment Votes: {this.props.votes + this.state.comVote}{" "}
           <button
+            disabled={this.state.comVote === -1 ? true : false}
             onClick={() => {
               this.commentVote("up");
             }}
           >
-            Vote Up
+            {this.state.comVote === 1 ? "Cancel Up Vote" : "Vote Up"}
           </button>{" "}
           <button
+            disabled={this.state.comVote === 1 ? true : false}
             onClick={() => {
               this.commentVote("down");
             }}
           >
-            Vote Down
+            {this.state.comVote === -1 ? "Cancel Down Vote" : "Vote Down"}
           </button>
         </span>
       </div>
@@ -30,7 +32,11 @@ class VoteComment extends Component {
   commentVote = direction => {
     console.log(direction, this.props.commentId);
     let comVote = this.state.comVote;
-    direction === "up" ? comVote++ : comVote--;
+    if (direction === "up") {
+      comVote === 0 ? comVote++ : comVote--;
+    } else {
+      comVote === 0 ? comVote-- : comVote++;
+    }
     this.setState({ comVote });
     api.changeCommentVote(this.props.commentId, direction).then(res => {
       return res.data;

@@ -7,27 +7,27 @@ import moment from "moment";
 
 class Article extends Component {
   state = {
-    article: []
+    article: {}
   };
   render() {
-    if (this.state.article.length !== 0) {
+    if (Object.keys(this.state.article).length !== 0) {
       return (
         <div>
           <br />
           <span>
-            {this.state.article[0].created_by}
+            {this.state.article.created_by.username}
             {": "}
-            {moment(this.state.article[0].created_at)
+            {moment(this.state.article.created_at)
               .format("DD/MM/YYYY HH:MM")
               .toString()}
           </span>
-          <h2>{this.state.article[0].title}</h2>
-          <p>{this.state.article[0].body}</p>
+          <h2>{this.state.article.title}</h2>
+          <p>{this.state.article.body}</p>
           <Vote
-            articleId={this.state.article[0]._id}
-            votes={this.state.article[0].votes}
+            articleId={this.state.article._id}
+            votes={this.state.article.votes}
           />
-          <Comments articleId={this.state.article[0]._id} />
+          <Comments articleId={this.state.article._id} />
         </div>
       );
     } else return null;

@@ -20,7 +20,7 @@ class Articles extends Component {
                 <div>
                   <h3>{article.title}</h3>
                   <span>
-                    {article.created_by}
+                    {article.created_by.username}
                     {": "}
                     {moment(article.created_at)
                       .format("DD/MM/YYYY HH:MM")
@@ -28,7 +28,7 @@ class Articles extends Component {
                   </span>
 
                   <p>{article.body}</p>
-                  <p>Votes: {article.votes}</p>
+                  <p>Article Votes: {article.votes}</p>
                 </div>
               </Link>
             </div>

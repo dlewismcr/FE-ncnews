@@ -10,8 +10,18 @@ class VoteArticle extends Component {
       <div>
         <span>
           Article Votes: {this.props.votes + this.state.userVote}{" "}
-          <button onClick={() => this.articleVote("up")}>Vote Up</button>{" "}
-          <button onClick={() => this.articleVote("down")}>Vote Down</button>
+          <button
+            disabled={this.state.userVote === -1 ? true : false}
+            onClick={() => this.articleVote("up")}
+          >
+            {this.state.userVote === 1 ? "Cancel Up Vote" : "Vote Up"}
+          </button>{" "}
+          <button
+            disabled={this.state.userVote === 1 ? true : false}
+            onClick={() => this.articleVote("down")}
+          >
+            {this.state.userVote === -1 ? "Cancel Down Vote" : "Vote Down"}
+          </button>
         </span>
       </div>
     );
@@ -20,7 +30,11 @@ class VoteArticle extends Component {
   articleVote = direction => {
     console.log(direction, this.props.articleId);
     let userVote = this.state.userVote;
-    direction === "up" ? userVote++ : userVote--;
+    if (direction === "up") {
+      userVote === 0 ? userVote++ : userVote--;
+    } else {
+      userVote === 0 ? userVote-- : userVote++;
+    }
     this.setState({ userVote });
     api.changeArticleVote(this.props.articleId, direction).then(res => {
       return res.data;
