@@ -8,7 +8,14 @@ const activeStyle = { color: "red" };
 
 class App extends Component {
   state = {
-    user: "toBeHardcoded"
+    user: {
+      _id: "5b64862bdcfcda7c02dbb446",
+      username: "grumpy19",
+      name: "Paul Grump",
+      avatar_url:
+        "https://www.tumbit.com/profile-image/4/original/mr-grumpy.jpg",
+      __v: 0
+    }
   };
   render() {
     return (
@@ -31,11 +38,15 @@ class App extends Component {
         <NavLink to="/topics/cooking/articles" activeStyle={activeStyle}>
           Cooking
         </NavLink>
+        <Route exact path="/" render={() => <Articles topic="" />} />
         <Route exact path="/articles" render={() => <Articles topic="" />} />
         <Route
           path="/articles/:article_id"
           render={props => (
-            <Article articleId={props.match.params.article_id} />
+            <Article
+              articleId={props.match.params.article_id}
+              user={this.state.user}
+            />
           )}
         />
         <Route

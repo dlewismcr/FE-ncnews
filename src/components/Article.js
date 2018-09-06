@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import * as api from "../api.js";
 import Vote from "./VoteArticle.js";
 import Comments from "./Comments.js";
+// import AddComment from "./AddComment.js";
 import moment from "moment";
 
 class Article extends Component {
@@ -27,7 +28,11 @@ class Article extends Component {
             articleId={this.state.article._id}
             votes={this.state.article.votes}
           />
-          <Comments articleId={this.state.article._id} />
+          <Comments articleId={this.state.article._id} user={this.props.user} />
+          {/* <AddComment
+            articleId={this.state.article._id}
+            user={this.props.user}
+          /> */}
         </div>
       );
     } else return null;

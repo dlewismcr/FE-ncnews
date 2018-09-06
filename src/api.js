@@ -40,3 +40,16 @@ export const changeCommentVote = (commentId, direction) => {
       return res.data.comment;
     });
 };
+
+export const addComment = (articleId, commentBody, userId) => {
+  const comment = { body: commentBody, created_by: userId };
+  return axios.post(`${url}/articles/${articleId}/comments`, comment);
+};
+
+export const deleteComment = commentId => {
+  return axios.delete(`${url}/comments/${commentId}`);
+};
+
+export const getUser = userName => {
+  return axios.get(`${url}/users/${userName}`);
+};

@@ -28,7 +28,6 @@ class VoteArticle extends Component {
   }
 
   articleVote = direction => {
-    console.log(direction, this.props.articleId);
     let userVote = this.state.userVote;
     if (direction === "up") {
       userVote === 0 ? userVote++ : userVote--;

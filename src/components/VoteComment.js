@@ -24,13 +24,15 @@ class VoteComment extends Component {
             }}
           >
             {this.state.comVote === -1 ? "Cancel Down Vote" : "Vote Down"}
-          </button>
+          </button>{" "}
+          {this.props.user.username === this.props.createdBy && (
+            <button onClick={this.deleteComment}>Delete Comment</button>
+          )}
         </span>
       </div>
     );
   }
   commentVote = direction => {
-    console.log(direction, this.props.commentId);
     let comVote = this.state.comVote;
     if (direction === "up") {
       comVote === 0 ? comVote++ : comVote--;
@@ -41,6 +43,10 @@ class VoteComment extends Component {
     api.changeCommentVote(this.props.commentId, direction).then(res => {
       return res.data;
     });
+  };
+
+  deleteComment = () => {
+    api.deleteComment(this.props.commentId);
   };
 }
 

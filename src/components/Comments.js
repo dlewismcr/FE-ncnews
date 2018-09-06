@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import * as api from "../api.js";
 import moment from "moment";
 import VoteComment from "./VoteComment.js";
+import AddComment from "./AddComment.js";
 
 class Comments extends Component {
   state = {
@@ -29,11 +30,18 @@ class Comments extends Component {
                 {/* use moment .fromNow() for 5 hrs ago */}
               </span>
               <p>{comment.body}</p>
-              <VoteComment votes={comment.votes} commentId={comment._id} />
+              <VoteComment
+                votes={comment.votes}
+                commentId={comment._id}
+                createdBy={comment.created_by.username}
+                user={this.props.user}
+              />
               <br />
             </div>
           );
         })}
+        <AddComment articleId={this.props.articleId} user={this.props.user} />
+        {/* <AddComment articleId={this.props.articleId} /> */}
       </div>
     );
   }
@@ -41,6 +49,13 @@ class Comments extends Component {
   componentDidMount() {
     this.loadComments();
   }
+
+  componentDidUpdate = async (prevProps, prevState) => {
+    if (prevState.comments.length !== this.state.comments.length) {
+      console.log("update");
+      this.loadComments();
+    }
+  };
 
   loadComments = () => {
     api
