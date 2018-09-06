@@ -29,6 +29,7 @@ class Articles extends Component {
 
                   <p>{article.body}</p>
                   <p>Article Votes: {article.votes}</p>
+                  <p>Article Comments: {article.commentCount}</p>
                 </div>
               </Link>
             </div>
@@ -39,11 +40,6 @@ class Articles extends Component {
   }
   componentDidMount() {
     this.loadArticles();
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.topic !== this.props.topic) {
-      this.loadArticles();
-    }
   }
 
   loadArticles = () => {

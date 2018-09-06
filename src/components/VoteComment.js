@@ -24,30 +24,44 @@ class VoteComment extends Component {
             }}
           >
             {this.state.comVote === -1 ? "Cancel Down Vote" : "Vote Down"}
-          </button>{" "}
+          </button>
+          {/* {" "}
           {this.props.user.username === this.props.createdBy && (
             <button onClick={this.deleteComment}>Delete Comment</button>
-          )}
+          )} */}
         </span>
       </div>
     );
   }
   commentVote = direction => {
     let comVote = this.state.comVote;
+    let voteDirection = "";
     if (direction === "up") {
-      comVote === 0 ? comVote++ : comVote--;
-    } else {
-      comVote === 0 ? comVote-- : comVote++;
+      if (comVote === 0) {
+        comVote++;
+        voteDirection = "up";
+      } else {
+        comVote--;
+        voteDirection = "down";
+      }
+    } else if (direction === "down") {
+      if (comVote === 0) {
+        comVote--;
+        voteDirection = "down";
+      } else {
+        comVote++;
+        voteDirection = "up";
+      }
     }
     this.setState({ comVote });
-    api.changeCommentVote(this.props.commentId, direction).then(res => {
+    api.changeCommentVote(this.props.commentId, voteDirection).then(res => {
       return res.data;
     });
   };
 
-  deleteComment = () => {
-    api.deleteComment(this.props.commentId);
-  };
+  // deleteComment = () => {
+  //   api.deleteComment(this.props.commentId);
+  // };  no longer used - mising logic for state: deletedComments: []
 }
 
 export default VoteComment;

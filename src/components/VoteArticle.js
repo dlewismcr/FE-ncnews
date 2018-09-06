@@ -29,13 +29,26 @@ class VoteArticle extends Component {
 
   articleVote = direction => {
     let userVote = this.state.userVote;
+    let voteDirection = "";
     if (direction === "up") {
-      userVote === 0 ? userVote++ : userVote--;
-    } else {
-      userVote === 0 ? userVote-- : userVote++;
+      if (userVote === 0) {
+        userVote++;
+        voteDirection = "up";
+      } else {
+        userVote--;
+        voteDirection = "down";
+      }
+    } else if (direction === "down") {
+      if (userVote === 0) {
+        userVote--;
+        voteDirection = "down";
+      } else {
+        userVote++;
+        voteDirection = "up";
+      }
     }
     this.setState({ userVote });
-    api.changeArticleVote(this.props.articleId, direction).then(res => {
+    api.changeArticleVote(this.props.articleId, voteDirection).then(res => {
       return res.data;
     });
   };

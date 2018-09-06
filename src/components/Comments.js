@@ -7,18 +7,22 @@ import AddComment from "./AddComment.js";
 
 class Comments extends Component {
   state = {
-    comments: []
+    comments: [],
+    deletedComments: []
   };
 
   render() {
     const { comments } = this.state;
-    comments.sort(function(a, b) {
-      return b.created_at - a.created_at;
+    const filteredComments = comments.filter(comment => {
+      return !this.state.deletedComments.includes(comment._id);
+    });
+    filteredComments.sort(function(a, b) {
+      return moment(b.created_at).isBefore(a.created_at);
     });
     return (
       <div className="Comments">
         <br />
-        {comments.map(comment => {
+        {filteredComments.map(comment => {
           return (
             <div key={comment._id}>
               <span>
@@ -27,7 +31,12 @@ class Comments extends Component {
                 {moment(comment.created_at)
                   .format("DD/MM/YYYY HH:MM")
                   .toString()}
-                {/* use moment .fromNow() for 5 hrs ago */}
+                {/* use moment .fromNow() for 5 hrs ago */}{" "}
+                {this.props.user.username === comment.created_by.username && (
+                  <button onClick={() => this.deleteComment(comment._id)}>
+                    Delete Your Comment
+                  </button>
+                )}
               </span>
               <p>{comment.body}</p>
               <VoteComment
@@ -41,7 +50,6 @@ class Comments extends Component {
           );
         })}
         <AddComment articleId={this.props.articleId} user={this.props.user} />
-        {/* <AddComment articleId={this.props.articleId} /> */}
       </div>
     );
   }
@@ -50,17 +58,34 @@ class Comments extends Component {
     this.loadComments();
   }
 
-  componentDidUpdate = async (prevProps, prevState) => {
-    if (prevState.comments.length !== this.state.comments.length) {
-      console.log("update");
+  componentDidUpdate = (prevProps, prevState) => {
+    if (
+      prevState.deletedComments.length !== this.state.deletedComments.length
+    ) {
+      console.log("update deleted comments");
       this.loadComments();
     }
   };
+  // componentDidUpdate = async (prevProps, prevState) => {
+  //   if (prevState.comments.length !== this.state.comments.length) {
+  //     console.log("update");
+  //     this.loadComments();
+  //   }
+  // };
 
   loadComments = () => {
     api
       .getComments(this.props.articleId)
       .then(res => this.setState({ comments: res.comment }));
+  };
+
+  deleteComment = commentId => {
+    const deleted = [...this.state.deletedComments];
+    deleted.push(commentId);
+    this.setState({
+      deletedComments: deleted
+    });
+    api.deleteComment(commentId);
   };
 
   static propTypes = {};
