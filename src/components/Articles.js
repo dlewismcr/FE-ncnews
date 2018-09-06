@@ -42,6 +42,12 @@ class Articles extends Component {
     this.loadArticles();
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.topic !== prevProps.topic) {
+      this.loadArticles();
+    }
+  }
+
   loadArticles = () => {
     if (this.props.topic !== "") {
       api.fetchArticlesByTopic(this.props.topic).then(res => {

@@ -43,7 +43,11 @@ export const changeCommentVote = (commentId, direction) => {
 
 export const addComment = (articleId, commentBody, userId) => {
   const comment = { body: commentBody, created_by: userId };
-  return axios.post(`${url}/articles/${articleId}/comments`, comment);
+  return axios
+    .post(`${url}/articles/${articleId}/comments`, comment)
+    .then(res => {
+      return res.data.comment;
+    });
 };
 
 export const deleteComment = commentId => {

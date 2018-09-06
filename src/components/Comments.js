@@ -8,14 +8,17 @@ import AddComment from "./AddComment.js";
 class Comments extends Component {
   state = {
     comments: [],
-    deletedComments: []
+    deletedComments: [],
+    addedComments: []
   };
 
   render() {
     const { comments } = this.state;
-    const filteredComments = comments.filter(comment => {
-      return !this.state.deletedComments.includes(comment._id);
-    });
+    const filteredComments = comments
+      .concat(this.state.addedComments)
+      .filter(comment => {
+        return !this.state.deletedComments.includes(comment._id);
+      });
     filteredComments.sort(function(a, b) {
       return moment(b.created_at).isBefore(a.created_at);
     });
@@ -49,7 +52,11 @@ class Comments extends Component {
             </div>
           );
         })}
-        <AddComment articleId={this.props.articleId} user={this.props.user} />
+        <AddComment
+          articleId={this.props.articleId}
+          user={this.props.user}
+          addComment={this.addComment}
+        />
       </div>
     );
   }
@@ -58,17 +65,18 @@ class Comments extends Component {
     this.loadComments();
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
-    if (
-      prevState.deletedComments.length !== this.state.deletedComments.length
-    ) {
-      console.log("update deleted comments");
-      this.loadComments();
-    }
-  };
-  // componentDidUpdate = async (prevProps, prevState) => {
-  //   if (prevState.comments.length !== this.state.comments.length) {
-  //     console.log("update");
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   if (
+  //     prevState.deletedComments.length !== this.state.deletedComments.length
+  //   ) {
+  //     console.log("update deleted comments");
+  //     this.loadComments();
+  //   }
+  // };
+
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   if (prevState.addedComments !== this.state.addedComments) {
+  //     console.log("componentDidUpdate");
   //     this.loadComments();
   //   }
   // };
@@ -77,6 +85,14 @@ class Comments extends Component {
     api
       .getComments(this.props.articleId)
       .then(res => this.setState({ comments: res.comment }));
+  };
+
+  addComment = (articleId, commentText, userId) => {
+    api.addComment(articleId, commentText, userId).then(res => {
+      console.log("addcomment", res);
+      let addedComments = [...this.state.addedComments].concat(res);
+      this.setState({ addedComments });
+    });
   };
 
   deleteComment = commentId => {

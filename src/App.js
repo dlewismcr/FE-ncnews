@@ -23,7 +23,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Northcoders News</h1>
         </header>
-        <NavLink to="/articles" activeStyle={activeStyle}>
+        <NavLink exact to="/articles" activeStyle={activeStyle}>
           All Articles
         </NavLink>
         {"  |  "}

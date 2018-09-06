@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as api from "../api.js";
+// import * as api from "../api.js";
 
 class AddComment extends Component {
   state = {
@@ -11,8 +11,8 @@ class AddComment extends Component {
         <textarea
           name=""
           id=""
-          cols="60"
-          rows="3"
+          cols="80"
+          rows="4"
           placeholder="Add a comment"
           onChange={this.handleText}
           value={this.state.commentText}
@@ -27,7 +27,7 @@ class AddComment extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    api.addComment(
+    this.props.addComment(
       this.props.articleId,
       this.state.commentText,
       this.props.user._id
