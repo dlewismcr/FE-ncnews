@@ -57,3 +57,21 @@ export const deleteComment = commentId => {
 export const getUser = userName => {
   return axios.get(`${url}/users/${userName}`);
 };
+
+export const addArticle = (topicSlug, title, body, user) => {
+  console.log("api.addarticle- user, need id", user);
+  const article = { title, body, created_by: user };
+  return axios
+    .post(`${url}/topics/${topicSlug}/articles`, article)
+    .then(res => {
+      return res.data.article;
+    });
+};
+
+// ```http
+// POST /api/topics/:topic_slug/articles
+// ```
+// ```
+// Add a new article to a topic.This route requires a JSON body with title and body key value pairs
+// e.g: `{ "title": "new article", "body": "This is my new article content"}`
+// ```

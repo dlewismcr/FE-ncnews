@@ -51,7 +51,9 @@ class App extends Component {
         />
         <Route
           path="/topics/:topic/articles"
-          render={props => <Articles topic={props.match.params.topic} />}
+          render={props => (
+            <Articles topic={props.match.params.topic} user={this.state.user} />
+          )}
         />
       </div>
     );

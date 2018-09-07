@@ -3,17 +3,26 @@ import React, { Component } from "react";
 import * as api from "../api.js";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import AddArticle from "./AddArticle";
 
 class Articles extends Component {
   state = {
-    articles: []
+    articles: [],
+    addedArticles: []
   };
 
   render() {
+    const { articles, addedArticles } = this.state;
+    const allArticles = articles.concat(addedArticles);
+    allArticles.sort(function(a, b) {
+      // console.log(a.created_at, b.created_at);
+      return moment(b.created_at).isBefore(a.created_at);
+    });
+    // .reverse();
     return (
       <div className="Articles">
         <br />
-        {this.state.articles.map(article => {
+        {allArticles.map(article => {
           return (
             <div key={article._id}>
               <Link to={`/articles/${article._id}`} votes={article.votes}>
@@ -23,7 +32,7 @@ class Articles extends Component {
                     {article.created_by.username}
                     {": "}
                     {moment(article.created_at)
-                      .format("DD/MM/YYYY HH:MM")
+                      .format("DD/MM/YYYY HH:mm")
                       .toString()}
                   </span>
 
@@ -35,6 +44,7 @@ class Articles extends Component {
             </div>
           );
         })}
+        <AddArticle user={this.props.user} addArticle={this.addArticle} />
       </div>
     );
   }
@@ -58,6 +68,13 @@ class Articles extends Component {
         this.setState({ articles: res.articles });
       });
     }
+  };
+
+  addArticle = (title, body, user) => {
+    api.addArticle(this.props.topic, title, body, user).then(res => {
+      const addedArticles = [...this.state.addedArticles].concat(res);
+      this.setState({ addedArticles });
+    });
   };
 }
 

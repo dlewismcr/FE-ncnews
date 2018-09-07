@@ -19,7 +19,7 @@ class Article extends Component {
             {this.state.article.created_by.username}
             {": "}
             {moment(this.state.article.created_at)
-              .format("DD/MM/YYYY HH:MM")
+              .format("DD/MM/YYYY HH:mm")
               .toString()}
           </span>
           <h2>{this.state.article.title}</h2>

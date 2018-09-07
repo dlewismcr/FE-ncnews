@@ -32,7 +32,7 @@ class Comments extends Component {
                 {comment.created_by.username}
                 {": "}
                 {moment(comment.created_at)
-                  .format("DD/MM/YYYY HH:MM")
+                  .format("DD/MM/YYYY HH:mm")
                   .toString()}
                 {/* use moment .fromNow() for 5 hrs ago */}{" "}
                 {this.props.user.username === comment.created_by.username && (
@@ -90,7 +90,7 @@ class Comments extends Component {
   addComment = (articleId, commentText, userId) => {
     api.addComment(articleId, commentText, userId).then(res => {
       console.log("addcomment", res);
-      let addedComments = [...this.state.addedComments].concat(res);
+      const addedComments = [...this.state.addedComments].concat(res);
       this.setState({ addedComments });
     });
   };
