@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Redirect } from "react";
 // import PT from "prop-types";
 import * as api from "../api.js";
 import { Link } from "react-router-dom";
@@ -8,7 +8,8 @@ import AddArticle from "./AddArticle";
 class Articles extends Component {
   state = {
     articles: [],
-    addedArticles: []
+    addedArticles: [],
+    err: null
   };
 
   render() {
@@ -19,6 +20,15 @@ class Articles extends Component {
       return moment(b.created_at).isBefore(a.created_at);
     });
     // .reverse();
+    if (this.state.err)
+      return (
+        <Redirect
+          to={{
+            pathname: "/error",
+            state: { err: this.state.err, from: "article" }
+          }}
+        />
+      );
     return (
       <div className="Articles">
         <br />
@@ -48,6 +58,7 @@ class Articles extends Component {
       </div>
     );
   }
+
   componentDidMount() {
     this.loadArticles();
   }
@@ -61,10 +72,17 @@ class Articles extends Component {
   loadArticles = () => {
     if (this.props.topic !== "") {
       api.fetchArticlesByTopic(this.props.topic).then(res => {
-        this.setState({ articles: res.articles });
+        console.log(res.message);
+        if (res.articles) {
+          this.setState({ articles: res.articles });
+        } else {
+          console.log(res);
+          this.setState({ err: res.message.message });
+        }
       });
     } else {
       api.fetchArticles().then(res => {
+        // console.log(res.articles);
         this.setState({ articles: res.articles });
       });
     }

@@ -3,7 +3,11 @@ import "./App.css";
 import { Route, NavLink } from "react-router-dom";
 import Articles from "./components/Articles";
 import Article from "./components/Article";
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { thumbsup } from "@fortawesome/free-solid-svg-icons";
 
+// library.add(thumbsup);
 const activeStyle = { color: "red" };
 
 class App extends Component {

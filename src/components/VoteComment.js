@@ -15,7 +15,11 @@ class VoteComment extends Component {
               this.commentVote("up");
             }}
           >
-            {this.state.comVote === 1 ? "Cancel Up Vote" : "Vote Up"}
+            {this.state.comVote === 1 ? (
+              <i class="material-icons">undo</i>
+            ) : (
+              <i class="material-icons">thumb_up</i>
+            )}
           </button>{" "}
           <button
             disabled={this.state.comVote === 1 ? true : false}
@@ -23,7 +27,11 @@ class VoteComment extends Component {
               this.commentVote("down");
             }}
           >
-            {this.state.comVote === -1 ? "Cancel Down Vote" : "Vote Down"}
+            {this.state.comVote === -1 ? (
+              <i class="material-icons">undo</i>
+            ) : (
+              <i class="material-icons">thumb_down</i>
+            )}
           </button>
           {/* {" "}
           {this.props.user.username === this.props.createdBy && (

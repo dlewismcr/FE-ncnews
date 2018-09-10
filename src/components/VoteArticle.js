@@ -1,5 +1,17 @@
 import React, { Component } from "react";
 import * as api from "../api.js";
+import "./VoteArticle.css";
+// import { withStyles } from "@material-ui/core/styles";
+// import Icon from "@material-ui/core/Icon";
+// import IconButton from "@material-ui/core/IconButton";
+// import { Undo, ThumbUp } from "@material-ui/icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// export const Food = () => (
+//   <div>
+//     Favorite Food: <FontAwesomeIcon icon="stroopwafel" />
+//   </div>
+// );
 
 class VoteArticle extends Component {
   state = {
@@ -8,19 +20,31 @@ class VoteArticle extends Component {
   render() {
     return (
       <div>
+        {/* <i class="material-icons">thumb_up</i>
+        <i class="material-icons">thumb_down</i>
+        <i class="material-icons">undo</i>
+        <FontAwesomeIcon icon="thumbs-up" /> */}
         <span>
           Article Votes: {this.props.votes + this.state.userVote}{" "}
-          <button
+          <button // class="far fa-thumbs-up"
             disabled={this.state.userVote === -1 ? true : false}
             onClick={() => this.articleVote("up")}
           >
-            {this.state.userVote === 1 ? "Cancel Up Vote" : "Vote Up"}
+            {this.state.userVote === 1 ? (
+              <i class="material-icons">undo</i>
+            ) : (
+              <i class="material-icons">thumb_up</i>
+            )}
           </button>{" "}
           <button
             disabled={this.state.userVote === 1 ? true : false}
             onClick={() => this.articleVote("down")}
           >
-            {this.state.userVote === -1 ? "Cancel Down Vote" : "Vote Down"}
+            {this.state.userVote === -1 ? (
+              <i class="material-icons">undo</i>
+            ) : (
+              <i class="material-icons">thumb_down</i>
+            )}
           </button>
         </span>
       </div>

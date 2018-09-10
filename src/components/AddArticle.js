@@ -8,9 +8,10 @@ class AddArticle extends Component {
   render() {
     return (
       <form action="">
+        <h3>Post New Article</h3>
         <input
           type="text"
-          placeholder="Article Title"
+          placeholder="New Article Title"
           onChange={this.handleTitle}
           value={this.state.title}
         />
