@@ -25,6 +25,11 @@ class Comments extends Component {
     return (
       <div className="Comments">
         <br />
+        <AddComment
+          articleId={this.props.articleId}
+          user={this.props.user}
+          addComment={this.addComment}
+        />
         {filteredComments.map(comment => {
           return (
             <div key={comment._id}>
@@ -52,11 +57,6 @@ class Comments extends Component {
             </div>
           );
         })}
-        <AddComment
-          articleId={this.props.articleId}
-          user={this.props.user}
-          addComment={this.addComment}
-        />
       </div>
     );
   }

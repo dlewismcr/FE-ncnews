@@ -1,7 +1,10 @@
 .App {
   text-align: center;
-  margin-left: 5%;
-  width: 90%;
+  margin-left: 1%;
+  width: 98%;
+  height: 98%;
+
+  background-color: rgb(252, 237, 177);
 }
 
 a,
@@ -12,6 +15,14 @@ a:link {
   text-decoration: none;
 }
 
-a:hover {
-  background-color: lightgray;
+.voteup {
+  background-color: rgb(104, 255, 104);
+}
+
+.votedown {
+  background-color: rgb(255, 87, 87);
+}
+
+.vote {
+  border-radius: 5px;
 }

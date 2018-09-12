@@ -1,0 +1,65 @@
+p {
+  margin: 5px;
+}
+
+.articles {
+  overflow: scroll;
+}
+.article {
+  text-align: center;
+  height: 14.5vh;
+  margin-top: 4px;
+  display: grid;
+  grid-template: 1fr 3fr / 1fr 7fr;
+  grid-template-areas:
+    "profile title"
+    "profile body";
+  border-radius: 20px;
+}
+
+.article:hover {
+  opacity: 0.8;
+}
+
+.author {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.title {
+  grid-area: title;
+  border: 1px solid black;
+  background-color: rgb(211, 211, 211);
+  margin: 0px;
+}
+
+.title-text {
+  font-size: 1.2em;
+  margin: 5px;
+}
+
+.body {
+  background-color: white;
+  grid-area: body;
+  text-align: justify;
+  text-justify: inter-character;
+  border: 1px solid black;
+  overflow: hidden;
+  margin: 0px;
+}
+.body-text {
+  margin: 5px 10px 5px 10px;
+}
+
+.profile {
+  grid-area: profile;
+  border: 1px solid black;
+  background-color: white;
+  margin: 0px;
+}
+
+.votes {
+  grid-area: votes;
+  border: 1px solid black;
+  margin: 0px;
+}

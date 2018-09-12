@@ -10,27 +10,29 @@ class VoteComment extends Component {
         <span>
           Comment Votes: {this.props.votes + this.state.comVote}{" "}
           <button
+            className="vote voteup"
             disabled={this.state.comVote === -1 ? true : false}
             onClick={() => {
               this.commentVote("up");
             }}
           >
             {this.state.comVote === 1 ? (
-              <i class="material-icons">undo</i>
+              <i className="material-icons">undo</i>
             ) : (
-              <i class="material-icons">thumb_up</i>
+              <i className="material-icons">thumb_up</i>
             )}
           </button>{" "}
           <button
+            className="vote votedown"
             disabled={this.state.comVote === 1 ? true : false}
             onClick={() => {
               this.commentVote("down");
             }}
           >
             {this.state.comVote === -1 ? (
-              <i class="material-icons">undo</i>
+              <i className="material-icons">undo</i>
             ) : (
-              <i class="material-icons">thumb_down</i>
+              <i className="material-icons">thumb_down</i>
             )}
           </button>
           {/* {" "}

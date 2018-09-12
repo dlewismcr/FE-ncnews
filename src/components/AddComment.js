@@ -11,8 +11,8 @@ class AddComment extends Component {
         <textarea
           name=""
           id=""
-          cols="80"
-          rows="4"
+          cols="150"
+          rows="2"
           placeholder="Add a comment"
           onChange={this.handleText}
           value={this.state.commentText}

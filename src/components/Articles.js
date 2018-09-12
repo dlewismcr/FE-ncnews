@@ -1,4 +1,5 @@
 import React, { Component, Redirect } from "react";
+import "./Articles.css";
 // import PT from "prop-types";
 import * as api from "../api.js";
 import { Link } from "react-router-dom";
@@ -9,7 +10,8 @@ class Articles extends Component {
   state = {
     articles: [],
     addedArticles: [],
-    err: null
+    err: null,
+    loading: true
   };
 
   render() {
@@ -19,7 +21,14 @@ class Articles extends Component {
       // console.log(a.created_at, b.created_at);
       return moment(b.created_at).isBefore(a.created_at);
     });
-    // .reverse();
+    if (this.state.loading)
+      return (
+        <div>
+          <br />
+          Loading...
+        </div>
+        // .reverse();
+      );
     if (this.state.err)
       return (
         <Redirect
@@ -29,44 +38,53 @@ class Articles extends Component {
           }}
         />
       );
-    return (
-      <div className="Articles">
-        <br />
-        {allArticles.map(article => {
-          return (
-            <div key={article._id}>
-              <Link to={`/articles/${article._id}`} votes={article.votes}>
-                <div>
-                  <h3>{article.title}</h3>
-                  <span>
-                    {article.created_by.username}
-                    {": "}
-                    {moment(article.created_at)
-                      .format("DD/MM/YYYY HH:mm")
-                      .toString()}
-                  </span>
-
-                  <p>{article.body}</p>
-                  <p>Article Votes: {article.votes}</p>
-                  <p>Article Comments: {article.commentCount}</p>
-                </div>
-              </Link>
-            </div>
-          );
-        })}
-        <AddArticle user={this.props.user} addArticle={this.addArticle} />
-      </div>
-    );
+    else
+      return (
+        <div className="Articles">
+          {this.props.topic !== "" && (
+            <AddArticle
+              user={this.props.user}
+              topic={this.props.topic}
+              addArticle={this.addArticle}
+            />
+          )}
+          {/* <br /> */}
+          {allArticles.map(article => {
+            return (
+              <div key={article._id}>
+                <Link to={`/articles/${article._id}`} votes={article.votes}>
+                  <div className="article">
+                    <div className="title">
+                      <h3 className="title-text">{article.title}</h3>
+                    </div>
+                    <div className="profile">
+                      <p className="author">{article.created_by.username}</p>
+                      <p>
+                        {" "}
+                        {moment(article.created_at)
+                          .format("DD/MM/YYYY HH:mm")
+                          .toString()}
+                      </p>
+                      <p>Comments: {article.commentCount}</p>
+                      <p>Votes: {article.votes}</p>
+                    </div>
+                    <div className="body">
+                      <p className="body-text">{article.body}</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      );
   }
 
   componentDidMount() {
     this.loadArticles();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.topic !== prevProps.topic) {
-      this.loadArticles();
-    }
+    this.setState({
+      loading: false
+    });
   }
 
   loadArticles = () => {

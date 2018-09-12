@@ -1,0 +1,28 @@
+.add-article {
+  margin-top: 3px;
+  /* border: 2px solid black; */
+  display: grid;
+  grid-template: 1fr 2.5fr / 1fr 5.5fr 0.5fr 1fr;
+  grid-template-areas:
+    ". title submit ."
+    ". text submit .";
+}
+
+#article-text {
+  grid-area: text;
+  margin-top: 3px;
+  border-radius: 5px;
+}
+
+#article-title {
+  grid-area: title;
+  border-radius: 5px;
+}
+
+#submit-article {
+  grid-area: submit;
+  height: 44px;
+  margin-top: 28px;
+  margin-left: 5px;
+  border-radius: 5px;
+}

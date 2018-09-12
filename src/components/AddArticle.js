@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddArticle.css";
 
 class AddArticle extends Component {
   state = {
@@ -7,25 +8,32 @@ class AddArticle extends Component {
   };
   render() {
     return (
-      <form action="">
-        <h3>Post New Article</h3>
-        <input
+      <form className="add-article" action="">
+        <br />
+        <textarea
+          id="article-title"
+          cols="80"
+          rows="1"
           type="text"
-          placeholder="New Article Title"
+          placeholder={`Title of your new ${this.props.topic} article:`}
           onChange={this.handleTitle}
           value={this.state.title}
         />
         <br />
         <textarea
           name=""
-          id=""
+          id="article-text"
           cols="80"
-          rows="4"
-          placeholder="Compose a new article"
+          rows="2"
+          placeholder={`Content of your new ${this.props.topic} article:`}
           onChange={this.handleText}
           value={this.state.articleText}
         />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button id="submit-article" onClick={this.handleSubmit}>
+          Submit
+          <br />
+          Article
+        </button>
       </form>
     );
   }

@@ -20,30 +20,32 @@ class VoteArticle extends Component {
   render() {
     return (
       <div>
-        {/* <i class="material-icons">thumb_up</i>
-        <i class="material-icons">thumb_down</i>
-        <i class="material-icons">undo</i>
+        {/* <i className="material-icons">thumb_up</i>
+        <i className="material-icons">thumb_down</i>
+        <i className="material-icons">undo</i>
         <FontAwesomeIcon icon="thumbs-up" /> */}
         <span>
           Article Votes: {this.props.votes + this.state.userVote}{" "}
-          <button // class="far fa-thumbs-up"
+          <button
+            className="vote voteup"
             disabled={this.state.userVote === -1 ? true : false}
             onClick={() => this.articleVote("up")}
           >
             {this.state.userVote === 1 ? (
-              <i class="material-icons">undo</i>
+              <i className="material-icons">undo</i>
             ) : (
-              <i class="material-icons">thumb_up</i>
+              <i className="material-icons">thumb_up</i>
             )}
           </button>{" "}
           <button
+            className="vote votedown"
             disabled={this.state.userVote === 1 ? true : false}
             onClick={() => this.articleVote("down")}
           >
             {this.state.userVote === -1 ? (
-              <i class="material-icons">undo</i>
+              <i className="material-icons">undo</i>
             ) : (
-              <i class="material-icons">thumb_down</i>
+              <i className="material-icons">thumb_down</i>
             )}
           </button>
         </span>
