@@ -22,6 +22,7 @@ class Comments extends Component {
     filteredComments.sort(function(a, b) {
       return moment(b.created_at).isBefore(a.created_at);
     });
+    filteredComments.reverse();
     return (
       <div className="Comments">
         <br />

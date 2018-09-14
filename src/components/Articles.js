@@ -18,10 +18,9 @@ class Articles extends Component {
     const { articles, addedArticles } = this.state;
     const allArticles = articles.concat(addedArticles);
     allArticles.sort(function(a, b) {
-      // console.log(a.created_at, b.created_at);
       return moment(b.created_at).isBefore(a.created_at);
     });
-    // .reverse();
+    allArticles.reverse();
     if (this.state.loading)
       return (
         <div>
