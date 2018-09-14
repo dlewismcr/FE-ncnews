@@ -21,13 +21,13 @@ class Articles extends Component {
       // console.log(a.created_at, b.created_at);
       return moment(b.created_at).isBefore(a.created_at);
     });
+    // .reverse();
     if (this.state.loading)
       return (
         <div>
           <br />
           Loading...
         </div>
-        // .reverse();
       );
     if (this.state.err)
       return (
@@ -54,10 +54,10 @@ class Articles extends Component {
               <div key={article._id}>
                 <Link to={`/articles/${article._id}`} votes={article.votes}>
                   <div className="article">
-                    <div className="title">
+                    <div className={`title ${article.belongs_to}`}>
                       <h3 className="title-text">{article.title}</h3>
                     </div>
-                    <div className="profile">
+                    <div className={`profile ${article.belongs_to}`}>
                       <p className="author">{article.created_by.username}</p>
                       <p>
                         {" "}
@@ -85,6 +85,13 @@ class Articles extends Component {
     this.setState({
       loading: false
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.topic !== this.props.topic) {
+      this.loadArticles();
+      this.setState({ loading: false });
+    }
   }
 
   loadArticles = () => {
