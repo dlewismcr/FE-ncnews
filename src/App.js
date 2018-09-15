@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Articles from "./components/Articles";
 import Article from "./components/Article";
 import NavLinks from "./components/NavLinks";
+import NoMatch from "./components/NoMatch";
 
 // import { library } from "@fortawesome/fontawesome-svg-core";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,23 +30,29 @@ class App extends Component {
           <h1 className="App-title">Northcoders News</h1>
         </header>
         <NavLinks />
-        <Route exact path="/" render={() => <Articles topic="" />} />
-        <Route exact path="/articles" render={() => <Articles topic="" />} />
-        <Route
-          path="/articles/:article_id"
-          render={props => (
-            <Article
-              articleId={props.match.params.article_id}
-              user={this.state.user}
-            />
-          )}
-        />
-        <Route
-          path="/topics/:topic/articles"
-          render={props => (
-            <Articles topic={props.match.params.topic} user={this.state.user} />
-          )}
-        />
+        <Switch>
+          <Route exact path="/" render={() => <Articles topic="" />} />
+          <Route exact path="/articles" render={() => <Articles topic="" />} />
+          <Route
+            path="/articles/:article_id"
+            render={props => (
+              <Article
+                articleId={props.match.params.article_id}
+                user={this.state.user}
+              />
+            )}
+          />
+          <Route
+            path="/topics/:topic/articles"
+            render={props => (
+              <Articles
+                topic={props.match.params.topic}
+                user={this.state.user}
+              />
+            )}
+          />
+          <Route component={NoMatch} />
+        </Switch>
       </div>
     );
   }

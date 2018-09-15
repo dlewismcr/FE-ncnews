@@ -21,6 +21,10 @@ a:link {
   font-weight: 900;
 }
 
+.nomatch {
+  background-color: red;
+}
+
 .voteup {
   background-color: rgb(104, 255, 104);
 }
