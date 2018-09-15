@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route, NavLink } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Articles from "./components/Articles";
 import Article from "./components/Article";
+import NavLinks from "./components/NavLinks";
+
 // import { library } from "@fortawesome/fontawesome-svg-core";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { thumbsup } from "@fortawesome/free-solid-svg-icons";
 
 // library.add(thumbsup);
-const activeStyle = { color: "red" };
 
 class App extends Component {
   state = {
@@ -27,21 +28,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Northcoders News</h1>
         </header>
-        <NavLink exact to="/articles" activeStyle={activeStyle}>
-          All Articles
-        </NavLink>
-        {"  |  "}
-        <NavLink to="/topics/football/articles" activeStyle={activeStyle}>
-          Football
-        </NavLink>
-        {"  |  "}
-        <NavLink to="/topics/coding/articles" activeStyle={activeStyle}>
-          Coding
-        </NavLink>
-        {"  |  "}
-        <NavLink to="/topics/cooking/articles" activeStyle={activeStyle}>
-          Cooking
-        </NavLink>
+        <NavLinks />
         <Route exact path="/" render={() => <Articles topic="" />} />
         <Route exact path="/articles" render={() => <Articles topic="" />} />
         <Route
