@@ -1,3 +1,4 @@
+import "./AddComment.css";
 import React, { Component } from "react";
 // import * as api from "../api.js";
 
@@ -7,17 +8,19 @@ class AddComment extends Component {
   };
   render() {
     return (
-      <form action="">
+      <form className="add-comment" action="">
         <textarea
-          name=""
+          className="comment-text"
           id=""
           cols="150"
           rows="2"
-          placeholder="Add a comment"
+          placeholder=" Add a comment:"
           onChange={this.handleText}
           value={this.state.commentText}
         />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button className="submit" onClick={this.handleSubmit}>
+          Submit
+        </button>
       </form>
     );
   }
