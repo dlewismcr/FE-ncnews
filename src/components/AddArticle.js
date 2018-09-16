@@ -4,7 +4,8 @@ import "./AddArticle.css";
 class AddArticle extends Component {
   state = {
     titleText: "",
-    articleText: ""
+    articleText: "",
+    addArticle: false
   };
   render() {
     return (

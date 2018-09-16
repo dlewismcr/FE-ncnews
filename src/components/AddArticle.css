@@ -7,18 +7,19 @@
     ". title submit ."
     ". text submit .";
 }
+#article-text,
+#article-title {
+  background-color: #f0f8ff;
+  border-radius: 5px;
+}
 
 #article-text {
   grid-area: text;
   margin-top: 3px;
-  border-radius: 5px;
-  background-color: #dfdbdb;
 }
 
 #article-title {
   grid-area: title;
-  border-radius: 5px;
-  background-color: #dfdbdb;
 }
 
 #submit-article {

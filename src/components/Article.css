@@ -1,0 +1,27 @@
+.Article {
+  background-color: #f0f8ff;
+  border-radius: 10px;
+  padding: 4px;
+  display: grid;
+  grid-template: 1fr / 7fr 1fr;
+  grid-template-areas: "article vote";
+}
+
+.Article-title {
+  margin: 2px;
+  font-size: 1.7em;
+  /* grid-area: article; */
+}
+.article-body {
+  grid-area: article;
+}
+
+.article-text {
+  text-align: justify;
+  text-justify: inter-character;
+  margin-top: 8px;
+}
+
+.Vote {
+  grid-area: vote;
+}

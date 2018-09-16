@@ -48,6 +48,7 @@ class Articles extends Component {
             />
           )}
           {/* <br /> */}
+          {/* return <ListArticle article={article} />; */}
           {allArticles.map(article => {
             return (
               <div key={article._id}>
@@ -80,10 +81,12 @@ class Articles extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state.loading);
     this.loadArticles();
     this.setState({
       loading: false
     });
+    console.log(this.state.loading);
   }
 
   componentDidUpdate(prevProps) {

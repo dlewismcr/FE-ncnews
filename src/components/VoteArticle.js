@@ -1,3 +1,4 @@
+import "./VoteArticle.css";
 import React, { Component } from "react";
 import * as api from "../api.js";
 import "./VoteArticle.css";
@@ -19,13 +20,17 @@ class VoteArticle extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="article-vote">
         {/* <i className="material-icons">thumb_up</i>
         <i className="material-icons">thumb_down</i>
         <i className="material-icons">undo</i>
         <FontAwesomeIcon icon="thumbs-up" /> */}
+        <div className="votecount">
+          Article Votes
+          <br />
+          <div className="count">{this.props.votes + this.state.userVote}</div>
+        </div>
         <span>
-          Article Votes: {this.props.votes + this.state.userVote}{" "}
           <button
             className="vote voteup"
             disabled={this.state.userVote === -1 ? true : false}
@@ -36,7 +41,7 @@ class VoteArticle extends Component {
             ) : (
               <i className="material-icons">thumb_up</i>
             )}
-          </button>{" "}
+          </button>
           <button
             className="vote votedown"
             disabled={this.state.userVote === 1 ? true : false}

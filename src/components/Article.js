@@ -1,3 +1,4 @@
+import "./Article.css";
 import React, { Component } from "react";
 // import PT from "prop-types";
 import * as api from "../api.js";
@@ -15,19 +16,24 @@ class Article extends Component {
       return (
         <div>
           <br />
-          <span>
-            {this.state.article.created_by.username}
-            {": "}
-            {moment(this.state.article.created_at)
-              .format("DD/MM/YYYY HH:mm")
-              .toString()}
-          </span>
-          <h2>{this.state.article.title}</h2>
-          <p>{this.state.article.body}</p>
-          <Vote
-            articleId={this.state.article._id}
-            votes={this.state.article.votes}
-          />
+          <div className="Article">
+            <div className="article-body">
+              <h2 className="Article-title">{this.state.article.title}</h2>
+              <span>
+                {this.state.article.created_by.username}
+                {": "}
+                {moment(this.state.article.created_at)
+                  .format("DD/MM/YYYY HH:mm")
+                  .toString()}
+              </span>
+              <p className="article-text">{this.state.article.body}</p>
+            </div>
+            <Vote
+              className="Vote"
+              articleId={this.state.article._id}
+              votes={this.state.article.votes}
+            />
+          </div>
           <Comments articleId={this.state.article._id} user={this.props.user} />
           {/* <AddComment
             articleId={this.state.article._id}
@@ -42,11 +48,11 @@ class Article extends Component {
     this.loadArticle();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.article.votes !== this.state.article.votes) {
-      this.loadArticle();
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.article.votes !== this.state.article.votes) {
+  //     this.loadArticle();
+  //   }
+  // }
 
   loadArticle = () => {
     api.getArticle(this.props.articleId).then(res => {

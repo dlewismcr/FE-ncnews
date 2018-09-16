@@ -4,7 +4,7 @@ const NoMatch = ({ location }) => {
   return (
     <div>
       <h2 className="nomatch">
-        404 Error: No match found for <code>{location.pathname}</code>
+        Error 404: No match found for <code>{location.pathname}</code>
       </h2>
     </div>
   );
