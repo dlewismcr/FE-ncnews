@@ -34,16 +34,21 @@ class Comments extends Component {
         />
         {filteredComments.map(comment => {
           return (
-            <div key={comment._id}>
-              <span>
+            <div className="comment" key={comment._id}>
+              <span className="comment-heading">
                 {comment.created_by.username}
                 {": "}
                 {moment(comment.created_at)
                   .format("DD/MM/YYYY HH:mm")
                   .toString()}
-                {/* use moment .fromNow() for 5 hrs ago */}{" "}
+                {" ("}
+                {moment(comment.created_at).fromNow()}
+                {") "}
                 {this.props.user.username === comment.created_by.username && (
-                  <button onClick={() => this.deleteComment(comment._id)}>
+                  <button
+                    className="delete-comment"
+                    onClick={() => this.deleteComment(comment._id)}
+                  >
                     Delete Your Comment
                   </button>
                 )}

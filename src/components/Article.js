@@ -25,6 +25,9 @@ class Article extends Component {
                 {moment(this.state.article.created_at)
                   .format("DD/MM/YYYY HH:mm")
                   .toString()}
+                {" ("}
+                {moment(this.state.article.created_at).fromNow()}
+                {") "}
               </span>
               <p className="article-text">{this.state.article.body}</p>
             </div>
