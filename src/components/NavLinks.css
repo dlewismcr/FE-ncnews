@@ -1,0 +1,14 @@
+.link {
+  background-color: #d7cbbf;
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-weight: 600;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+.NavLinks {
+  margin-bottom: 10px;
+}

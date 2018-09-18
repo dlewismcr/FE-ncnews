@@ -4,3 +4,17 @@
   border-radius: 10px;
   padding: 4px;
 }
+
+.comment {
+  padding-top: 10px;
+  border-top: 1px solid rgb(59, 59, 59);
+}
+
+.comment-heading {
+  font-weight: 600;
+}
+
+.delete-comment {
+  margin-left: 10px;
+  border-radius: 3px;
+}

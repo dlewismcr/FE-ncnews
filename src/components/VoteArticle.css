@@ -3,16 +3,17 @@
   grid-template: 1fr 1fr / 1fr;
   grid-template-areas: "count" "vote";
   border-left: 1px solid hsl(0, 0%, 70%);
+  padding: 0px;
 }
 
 .count {
-  font-size: 1.7em;
+  font-size: 1.6em;
   margin-top: 12px;
 }
 
 .votecount {
   grid-area: count;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 900;
   margin-top: 12px;
 }
