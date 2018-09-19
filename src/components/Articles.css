@@ -28,13 +28,13 @@ p {
 
 .title {
   grid-area: title;
-  background-color: #d7cbbf;
+  /* background-color: #d7cbbf; */
   margin: 0px;
 }
 
 .title-text {
   font-size: 1.2em;
-  margin: 2px;
+  margin: 3px;
 }
 
 .body,

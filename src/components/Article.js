@@ -17,8 +17,8 @@ class Article extends Component {
         <div>
           <br />
           <div className="Article">
-            <div className="article-body">
-              <h2 className="Article-title">{this.state.article.title}</h2>
+            <div className="Article-title">
+              <h2 className="title-text">{this.state.article.title}</h2>
               <span>
                 {this.state.article.created_by.username}
                 {": "}
@@ -29,6 +29,8 @@ class Article extends Component {
                 {moment(this.state.article.created_at).fromNow()}
                 {") "}
               </span>
+            </div>
+            <div className="article-body">
               <p className="article-text">{this.state.article.body}</p>
             </div>
             <Vote
