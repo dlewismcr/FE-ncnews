@@ -55,7 +55,7 @@ class Articles extends Component {
                 <Link to={`/articles/${article._id}`} votes={article.votes}>
                   <div className="article">
                     <div className={`title ${article.belongs_to}`}>
-                      <h3 className="title-text">{article.title}</h3>
+                      <h3 className="articles-title">{article.title}</h3>
                     </div>
                     <div className={`profile ${article.belongs_to}`}>
                       <p className="author">{article.created_by.username}</p>
