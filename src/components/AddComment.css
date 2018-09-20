@@ -1,6 +1,6 @@
 .add-comment {
   display: grid;
-  grid-template: 1fr / 7fr 1fr;
+  grid-template: 1fr / 8fr 1fr;
   grid-template-areas: "comment submit";
 }
 
