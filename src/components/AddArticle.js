@@ -16,7 +16,7 @@ class AddArticle extends Component {
           cols="80"
           rows="1"
           type="text"
-          placeholder={`Title of your new ${this.props.topic} article:`}
+          placeholder={`Title of your new article on ${this.props.topic}:`}
           onChange={this.handleTitle}
           value={this.state.title}
         />
@@ -26,7 +26,7 @@ class AddArticle extends Component {
           id="article-text"
           cols="80"
           rows="2"
-          placeholder={`Content of your new ${this.props.topic} article:`}
+          placeholder={`Content of your new article on ${this.props.topic}:`}
           onChange={this.handleText}
           value={this.state.articleText}
         />

@@ -9,26 +9,26 @@ const NavLinks = () => {
       <NavLink exact to="/articles" className="link" activeStyle={activeStyle}>
         All Articles
       </NavLink>
-      {"  |  "}
-      <NavLink
+      {"    "}
+      <NavLink 
         to="/topics/football/articles"
-        className="link"
+        className="link footballLink"
         activeStyle={activeStyle}
       >
         Football
       </NavLink>
-      {"  |  "}
+      {"    "}
       <NavLink
         to="/topics/coding/articles"
-        className="link"
+        className="link codingLink"
         activeStyle={activeStyle}
       >
         Coding
       </NavLink>
-      {"  |  "}
+      {"    "}
       <NavLink
         to="/topics/cooking/articles"
-        className="link"
+        className="link cookingLink"
         activeStyle={activeStyle}
       >
         Cooking

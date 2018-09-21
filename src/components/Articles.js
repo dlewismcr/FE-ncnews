@@ -50,15 +50,19 @@ class Articles extends Component {
           {/* <br /> */}
           {/* return <ListArticle article={article} />; */}
           {allArticles.map(article => {
-            return (
-              <div key={article._id}>
+            return <div key={article._id}>
                 <Link to={`/articles/${article._id}`} votes={article.votes}>
                   <div className="article">
                     <div className={`title ${article.belongs_to}`}>
-                      <h3 className="articles-title">{article.title}</h3>
+                      <h3 className="articles-title">
+                        {article.title}
+                      </h3>
                     </div>
-                    <div className={`profile ${article.belongs_to}`}>
-                      <p className="author">{article.created_by.username}</p>
+                    {/* <div className={`profile ${article.belongs_to}`}> */}
+                    <div className={`profile`}>
+                      <p className="author">
+                        {article.created_by.username}
+                      </p>
                       <p>
                         {" "}
                         {moment(article.created_at)
@@ -73,8 +77,7 @@ class Articles extends Component {
                     </div>
                   </div>
                 </Link>
-              </div>
-            );
+              </div>;
           })}
         </div>
       );

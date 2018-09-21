@@ -1,5 +1,14 @@
+.codingLink {
+  background-color: #ebe5df;
+}
+
+.cookingLink {
+  background-color: #c8d3d1;
+}
+.footballLink {
+  background-color: #a4c1c4;
+}
 .link {
-  background-color: #d7cbbf;
   border-radius: 3px;
   padding: 2px 5px;
   font-weight: 600;
