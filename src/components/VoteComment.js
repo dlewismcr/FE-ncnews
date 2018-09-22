@@ -1,3 +1,4 @@
+import "./VoteComment.css";
 import React, { Component } from "react";
 import * as api from "../api.js";
 class VoteComment extends Component {
@@ -6,9 +7,9 @@ class VoteComment extends Component {
   };
   render() {
     return (
-      <div>
-        <span>
-          Comment Votes: {this.props.votes + this.state.comVote}{" "}
+      <div className="VoteComment">
+        <span className="commentSpan">
+          Votes: {this.props.votes + this.state.comVote}{" "}
           <button
             className="vote voteup"
             disabled={this.state.comVote === -1 ? true : false}
@@ -23,7 +24,7 @@ class VoteComment extends Component {
             )}
           </button>{" "}
           <button
-            className="vote votedown"
+            className="vote votedown articleVoteDown"
             disabled={this.state.comVote === 1 ? true : false}
             onClick={() => {
               this.commentVote("down");

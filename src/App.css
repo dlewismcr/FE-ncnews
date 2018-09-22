@@ -41,5 +41,9 @@ a:link {
 }
 
 .vote {
+   height: 33px;
+  width: 40px;
+  padding-top: 3px;
   border-radius: 5px;
+  box-shadow: 2px 2px rgb(88, 88, 88);
 }
