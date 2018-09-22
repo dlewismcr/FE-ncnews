@@ -54,12 +54,10 @@ class Articles extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state.loading);
     this.loadArticles();
     this.setState({
       loading: false
     });
-    console.log(this.state.loading);
   }
 
   componentDidUpdate(prevProps) {
@@ -72,11 +70,9 @@ class Articles extends Component {
   loadArticles = () => {
     if (this.props.topic !== "") {
       api.fetchArticlesByTopic(this.props.topic).then(res => {
-        console.log(res.message);
         if (res.articles) {
           this.setState({ articles: res.articles });
         } else {
-          console.log(res);
           this.setState({ err: res.message.message });
         }
       });

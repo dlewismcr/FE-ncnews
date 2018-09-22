@@ -52,7 +52,6 @@ class Comments extends Component {
 
   addComment = (articleId, commentText, userId) => {
     api.addComment(articleId, commentText, userId).then(res => {
-      console.log("addcomment", res);
       const addedComments = [...this.state.addedComments].concat(res);
       this.setState({ addedComments });
     });
