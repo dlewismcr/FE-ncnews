@@ -39,10 +39,6 @@ class Article extends Component {
             />
           </div>
           <Comments articleId={this.state.article._id} user={this.props.user} />
-          {/* <AddComment
-            articleId={this.state.article._id}
-            user={this.props.user}
-          /> */}
         </div>
       );
     } else return null;

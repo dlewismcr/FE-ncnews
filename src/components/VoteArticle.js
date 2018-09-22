@@ -10,10 +10,6 @@ class VoteArticle extends Component {
   render() {
     return (
       <div className="article-vote">
-        {/* <i className="material-icons">thumb_up</i>
-        <i className="material-icons">thumb_down</i>
-        <i className="material-icons">undo</i>
-        <FontAwesomeIcon icon="thumbs-up" /> */}
         <div className="votecount">
           Article Votes
           <br />

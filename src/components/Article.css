@@ -7,7 +7,6 @@
 }
 
 .Article-title {
-  /* background-color: red; */
   margin: 2px;
   grid-area: title;
 }

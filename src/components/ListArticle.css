@@ -11,7 +11,6 @@ p {
   grid-template-areas:
   "profile title"
   "profile body";
-  /* border-radius: 20px; */
 }
 
 .article:hover {
@@ -41,7 +40,6 @@ p {
 
 .body {
   background-color: #f0f8ff;
-  /* background-color: #d7cfcf; */
   grid-area: body;
   text-align: justify;
   text-justify: inter-character;
@@ -72,9 +70,7 @@ p {
 
 .title {
   font-size: 0.8em;
-
   grid-area: title;
-  /* background-color: #d7cbbf; */
   margin: 0px;
   padding: 0px;
 }

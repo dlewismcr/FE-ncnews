@@ -1,6 +1,5 @@
 .add-article {
   margin-top: 3px;
-  /* border: 2px solid black; */
   display: grid;
   grid-template: 1fr 2.5fr / 1fr 5.5fr 0.5fr 1fr;
   grid-template-areas:

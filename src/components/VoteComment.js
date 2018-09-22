@@ -36,10 +36,6 @@ class VoteComment extends Component {
               <i className="material-icons">thumb_down</i>
             )}
           </button>
-          {/* {" "}
-          {this.props.user.username === this.props.createdBy && (
-            <button onClick={this.deleteComment}>Delete Comment</button>
-          )} */}
         </span>
       </div>
     );
