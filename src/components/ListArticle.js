@@ -1,15 +1,16 @@
+import "./ListArticle.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-const ListArticle = () => {
-  const { article } = this.props;
+const ListArticle = ({article}) => {
+  // const { article } = this.props;
   return (
     <div key={article._id}>
       <Link to={`/articles/${article._id}`} votes={article.votes}>
         <div className="article">
           <div className={`title ${article.belongs_to}`}>
-            <h3 className="title-text">{article.title}</h3>
+            <h3 className="list-title-text">{article.title}</h3>
           </div>
           <div className={`profile ${article.belongs_to}`}>
             <p className="author">{article.created_by.username}</p>

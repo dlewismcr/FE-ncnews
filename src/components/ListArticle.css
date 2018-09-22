@@ -2,9 +2,6 @@ p {
   margin: 5px;
 }
 
-.articles {
-  overflow: scroll;
-}
 .article {
   text-align: center;
   height: 14.5vh;
@@ -12,13 +9,17 @@ p {
   display: grid;
   grid-template: 1fr 3fr / 1fr 7fr;
   grid-template-areas:
-    "profile title"
-    "profile body";
+  "profile title"
+  "profile body";
   /* border-radius: 20px; */
 }
 
 .article:hover {
   opacity: 0.8;
+}
+
+.articles {
+  overflow: scroll;
 }
 
 .articles-title {
@@ -76,6 +77,11 @@ p {
   /* background-color: #d7cbbf; */
   margin: 0px;
   padding: 0px;
+}
+
+.list-title-text{
+  font-size: 1.7em;
+  margin:4px;
 }
 
 .votes {

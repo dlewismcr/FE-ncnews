@@ -1,10 +1,11 @@
+// import "./Articles.css";
 import React, { Component, Redirect } from "react";
-import "./Articles.css";
 // import PT from "prop-types";
 import * as api from "../api.js";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import moment from "moment";
 import AddArticle from "./AddArticle";
+import ListArticle from "./ListArticle"
 
 class Articles extends Component {
   state = {
@@ -47,37 +48,8 @@ class Articles extends Component {
               addArticle={this.addArticle}
             />
           )}
-          {/* <br /> */}
-          {/* return <ListArticle article={article} />; */}
           {allArticles.map(article => {
-            return <div key={article._id}>
-                <Link to={`/articles/${article._id}`} votes={article.votes}>
-                  <div className="article">
-                    <div className={`title ${article.belongs_to}`}>
-                      <h3 className="articles-title">
-                        {article.title}
-                      </h3>
-                    </div>
-                    {/* <div className={`profile ${article.belongs_to}`}> */}
-                    <div className={`profile`}>
-                      <p className="author">
-                        {article.created_by.username}
-                      </p>
-                      <p>
-                        {" "}
-                        {moment(article.created_at)
-                          .format("DD/MM/YYYY HH:mm")
-                          .toString()}
-                      </p>
-                      <p>Comments: {article.commentCount}</p>
-                      <p>Votes: {article.votes}</p>
-                    </div>
-                    <div className="body">
-                      <p className="body-text">{article.body}</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>;
+          return <ListArticle article={article} />;
           })}
         </div>
       );
