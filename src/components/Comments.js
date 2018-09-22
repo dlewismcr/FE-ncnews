@@ -3,8 +3,9 @@ import React, { Component } from "react";
 // import PT from "prop-types";
 import * as api from "../api.js";
 import moment from "moment";
-import VoteComment from "./VoteComment.js";
+
 import AddComment from "./AddComment.js";
+import ListComment from "./ListComment";
 
 class Comments extends Component {
   state = {
@@ -32,37 +33,8 @@ class Comments extends Component {
           user={this.props.user}
           addComment={this.addComment}
         />
-        {filteredComments.map(comment => {
-          return (
-            <div className="comment" key={comment._id}>
-              <span className="comment-heading">
-                {comment.created_by.username}
-                {": "}
-                {moment(comment.created_at)
-                  .format("DD/MM/YYYY HH:mm")
-                  .toString()}
-                {" ("}
-                {moment(comment.created_at).fromNow()}
-                {") "}
-                {this.props.user.username === comment.created_by.username && (
-                  <button
-                    className="delete-comment"
-                    onClick={() => this.deleteComment(comment._id)}
-                  >
-                    Delete Your Comment
-                  </button>
-                )}
-              </span>
-              <p>{comment.body}</p>
-              <VoteComment
-                votes={comment.votes}
-                commentId={comment._id}
-                createdBy={comment.created_by.username}
-                user={this.props.user}
-              />
-              <br />
-            </div>
-          );
+        {filteredComments.map((comment) => {
+          return <ListComment user={this.props.user} comment={comment} />;
         })}
       </div>
     );
