@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 
 const ListArticle = ({article}) => {
-  // const { article } = this.props;
   return (
     <div key={article._id}>
       <Link to={`/articles/${article._id}`} votes={article.votes}>

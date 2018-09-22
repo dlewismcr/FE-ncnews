@@ -1,6 +1,5 @@
 import "./AddComment.css";
 import React, { Component } from "react";
-// import * as api from "../api.js";
 
 class AddComment extends Component {
   state = {

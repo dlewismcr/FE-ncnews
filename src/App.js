@@ -6,12 +6,6 @@ import Article from "./components/Article";
 import NavLinks from "./components/NavLinks";
 import NoMatch from "./components/NoMatch";
 
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { thumbsup } from "@fortawesome/free-solid-svg-icons";
-
-// library.add(thumbsup);
-
 class App extends Component {
   state = {
     user: {

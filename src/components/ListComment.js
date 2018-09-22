@@ -28,7 +28,6 @@ const ListComment = ({comment, user}) => {
         votes={comment.votes}
         commentId={comment._id}
         createdBy={comment.created_by.username}
-        // user={user}
       />
       <br />
     </div>

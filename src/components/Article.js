@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import * as api from "../api.js";
 import Vote from "./VoteArticle.js";
 import Comments from "./Comments.js";
-// import AddComment from "./AddComment.js";
 import moment from "moment";
 
 class Article extends Component {
@@ -52,12 +51,6 @@ class Article extends Component {
   componentDidMount() {
     this.loadArticle();
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.article.votes !== this.state.article.votes) {
-  //     this.loadArticle();
-  //   }
-  // }
 
   loadArticle = () => {
     api.getArticle(this.props.articleId).then(res => {

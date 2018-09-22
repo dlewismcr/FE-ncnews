@@ -44,22 +44,6 @@ class Comments extends Component {
     this.loadComments();
   }
 
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   if (
-  //     prevState.deletedComments.length !== this.state.deletedComments.length
-  //   ) {
-  //     console.log("update deleted comments");
-  //     this.loadComments();
-  //   }
-  // };
-
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   if (prevState.addedComments !== this.state.addedComments) {
-  //     console.log("componentDidUpdate");
-  //     this.loadComments();
-  //   }
-  // };
-
   loadComments = () => {
     api
       .getComments(this.props.articleId)

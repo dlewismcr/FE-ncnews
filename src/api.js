@@ -75,7 +75,6 @@ export const getUser = withErrorHandling(userName => {
 });
 
 export const addArticle = withErrorHandling((topicSlug, title, body, user) => {
-  // console.log("api.addarticle- user, need id", user);
   const article = { title, body, created_by: user };
   return axios
     .post(`${url}/topics/${topicSlug}/articles`, article)

@@ -53,7 +53,6 @@ class AddArticle extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // console.log(this.props.user._id);
     this.props.addArticle(
       this.state.titleText,
       this.state.articleText,

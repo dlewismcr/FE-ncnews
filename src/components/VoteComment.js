@@ -69,10 +69,6 @@ class VoteComment extends Component {
       return res.data;
     });
   };
-
-  // deleteComment = () => {
-  //   api.deleteComment(this.props.commentId);
-  // };  no longer used - mising logic for state: deletedComments: []
 }
 
 export default VoteComment;

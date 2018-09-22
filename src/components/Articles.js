@@ -1,8 +1,6 @@
-// import "./Articles.css";
 import React, { Component, Redirect } from "react";
 // import PT from "prop-types";
 import * as api from "../api.js";
-// import { Link } from "react-router-dom";
 import moment from "moment";
 import AddArticle from "./AddArticle";
 import ListArticle from "./ListArticle"
@@ -84,7 +82,6 @@ class Articles extends Component {
       });
     } else {
       api.fetchArticles().then(res => {
-        // console.log(res.articles);
         this.setState({ articles: res.articles });
       });
     }
