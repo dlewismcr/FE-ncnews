@@ -34,7 +34,7 @@ class Comments extends Component {
           addComment={this.addComment}
         />
         {filteredComments.map((comment) => {
-          return <ListComment user={this.props.user} comment={comment} />;
+          return <ListComment user={this.props.user} comment={comment} key={comment._id} />;
         })}
       </div>
     );
