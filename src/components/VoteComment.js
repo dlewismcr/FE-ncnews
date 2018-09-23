@@ -1,6 +1,8 @@
 import "./VoteComment.css";
 import React, { Component } from "react";
 import * as api from "../api.js";
+import PropTypes from "prop-types";
+
 class VoteComment extends Component {
   state = {
     comVote: 0
@@ -66,5 +68,10 @@ class VoteComment extends Component {
     });
   };
 }
+
+VoteComment.propTypes = {
+  votes: PropTypes.number,
+  commentId: PropTypes.string
+};
 
 export default VoteComment;

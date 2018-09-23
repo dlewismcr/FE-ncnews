@@ -1,6 +1,6 @@
 import "./Comments.css";
 import React, { Component } from "react";
-// import PT from "prop-types";
+import PropTypes from "prop-types";
 import * as api from "../api.js";
 import moment from "moment";
 
@@ -65,8 +65,11 @@ class Comments extends Component {
     });
     api.deleteComment(commentId);
   };
-
-  static propTypes = {};
 }
+
+Comments.propTypes = {
+  articleId: PropTypes.string,
+  user: PropTypes.string
+};
 
 export default Comments;

@@ -1,5 +1,6 @@
 import "./AddComment.css";
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class AddComment extends Component {
   state = {
@@ -37,4 +38,10 @@ class AddComment extends Component {
     this.setState({ commentText: "" });
   };
 }
+
+AddComment.propTypes = {
+  addComment: PropTypes.function,
+  articleId: PropTypes.string,
+  _id: PropTypes.string
+};
 export default AddComment;

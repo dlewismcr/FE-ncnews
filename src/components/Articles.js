@@ -3,7 +3,9 @@ import React, { Component, Redirect } from "react";
 import * as api from "../api.js";
 import moment from "moment";
 import AddArticle from "./AddArticle";
-import ListArticle from "./ListArticle"
+import ListArticle from "./ListArticle";
+import PropTypes from "prop-types";
+
 
 class Articles extends Component {
   state = {
@@ -47,7 +49,7 @@ class Articles extends Component {
             />
           )}
           {allArticles.map(article => {
-          return <ListArticle article={article} />;
+          return <ListArticle key={article._id}article={article} />;
           })}
         </div>
       );
@@ -90,5 +92,10 @@ class Articles extends Component {
     });
   };
 }
+
+Articles.propTypes = {
+  topic: PropTypes.string,
+  user: PropTypes.string
+};
 
 export default Articles;

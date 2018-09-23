@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./AddArticle.css";
+import PropTypes from "prop-types";
 
 class AddArticle extends Component {
   state = {
@@ -61,5 +62,10 @@ class AddArticle extends Component {
     this.setState({ articleTitle: "", articleText: "" });
   };
 }
+
+AddArticle.propTypes = {
+  addArticle: PropTypes.function,
+  _id: PropTypes.string
+};
 
 export default AddArticle;

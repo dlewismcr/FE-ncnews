@@ -5,7 +5,7 @@ import moment from "moment";
 
 const ListArticle = ({article}) => {
   return (
-    <div key={article._id}>
+    <div>
       <Link to={`/articles/${article._id}`} votes={article.votes}>
         <div className="article">
           <div className={`title ${article.belongs_to}`}>
