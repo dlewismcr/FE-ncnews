@@ -3,6 +3,7 @@
   background-color: #f0f8ff;
   border-radius: 10px;
   padding: 4px;
+  min-height: 382px;
 }
 
 .comment {
