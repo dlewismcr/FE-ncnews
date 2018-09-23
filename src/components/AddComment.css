@@ -11,6 +11,8 @@
 }
 
 .submit {
+  font-size: 1.1em;
+  font-weight: bolder;
   border-radius: 5px;
   grid-area: submit;
   margin: 0px 15px 10px;
