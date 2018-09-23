@@ -95,7 +95,7 @@ class Articles extends Component {
 
 Articles.propTypes = {
   topic: PropTypes.string,
-  user: PropTypes.string
+  user: PropTypes.object
 };
 
 export default Articles;

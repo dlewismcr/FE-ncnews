@@ -64,7 +64,7 @@ class AddArticle extends Component {
 }
 
 AddArticle.propTypes = {
-  addArticle: PropTypes.function,
+  addArticle: PropTypes.func,
   _id: PropTypes.string
 };
 
