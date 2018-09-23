@@ -1,17 +1,10 @@
-.codingLink {
-  background-color: #ebe5df;
-}
-
-.cookingLink {
-  background-color: #c8d3d1;
-}
-.footballLink {
-  background-color: #a4c1c4;
-}
 .link {
   border-radius: 3px;
-  padding: 2px 5px;
+  padding: 3px 7px;
+
   font-weight: 600;
+    background-color: #d7cbbf;
+margin-left:10px;
 }
 
 .link:hover {

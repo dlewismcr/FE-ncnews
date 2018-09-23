@@ -50,22 +50,11 @@ p {
 .body-text {
   margin: 5px 10px 5px 10px;
 }
-.coding {
-  background-color: #ebe5df;
-}
-
-.cooking {
-  background-color: #c8d3d1;
-}
-
-.football {
-  background-color: #a4c1c4;
-}
 
 .profile {
   grid-area: profile;
   margin: 0px;
-  background-color: #f0f8ff;
+  background-color: #ebe5df;
 }
 
 .title {
@@ -73,6 +62,7 @@ p {
   grid-area: title;
   margin: 0px;
   padding: 0px;
+  background-color: #ebe5df;
 }
 
 .list-title-text{

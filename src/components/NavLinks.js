@@ -9,15 +9,6 @@ const NavLinks = () => {
       <NavLink exact to="/articles" className="link" activeStyle={activeStyle}>
         All Articles
       </NavLink>
-      {"    "}
-      <NavLink 
-        to="/topics/football/articles"
-        className="link footballLink"
-        activeStyle={activeStyle}
-      >
-        Football
-      </NavLink>
-      {"    "}
       <NavLink
         to="/topics/coding/articles"
         className="link codingLink"
@@ -25,13 +16,19 @@ const NavLinks = () => {
       >
         Coding
       </NavLink>
-      {"    "}
       <NavLink
         to="/topics/cooking/articles"
         className="link cookingLink"
         activeStyle={activeStyle}
       >
         Cooking
+      </NavLink>
+      <NavLink 
+        to="/topics/football/articles"
+        className="link footballLink"
+        activeStyle={activeStyle}
+      >
+        Football
       </NavLink>
     </div>
   );

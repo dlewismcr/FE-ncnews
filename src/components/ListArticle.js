@@ -8,10 +8,10 @@ const ListArticle = ({article}) => {
     <div>
       <Link to={`/articles/${article._id}`} votes={article.votes}>
         <div className="article">
-          <div className={`title ${article.belongs_to}`}>
+          <div className={`title`}>
             <h3 className="list-title-text">{article.title}</h3>
           </div>
-          <div className={`profile ${article.belongs_to}`}>
+          <div className={`profile`}>
             <p className="author">{article.created_by.username}</p>
             <p>
               {" "}
