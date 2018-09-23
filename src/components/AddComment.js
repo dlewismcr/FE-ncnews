@@ -40,7 +40,7 @@ class AddComment extends Component {
 }
 
 AddComment.propTypes = {
-  addComment: PropTypes.function,
+  addComment: PropTypes.func,
   articleId: PropTypes.string,
   _id: PropTypes.string
 };

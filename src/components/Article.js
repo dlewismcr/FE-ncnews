@@ -56,7 +56,7 @@ class Article extends Component {
 }
     Article.propTypes = {
       articleId: PropTypes.string,
-      user: PropTypes.string
+      user: PropTypes.object
     };
 
 export default Article;
