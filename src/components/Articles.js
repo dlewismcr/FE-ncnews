@@ -5,6 +5,7 @@ import moment from "moment";
 import AddArticle from "./AddArticle";
 import ListArticle from "./ListArticle";
 import PropTypes from "prop-types";
+import Loading from "./Loading.js";
 
 
 class Articles extends Component {
@@ -24,10 +25,11 @@ class Articles extends Component {
     allArticles.reverse();
     if (this.state.loading)
       return (
-        <div>
-          <br />
-          Loading...
-        </div>
+        <Loading/>
+        // <div>
+        //   <br />
+        //   Loading...
+        // </div>
       );
     if (this.state.err)
       return (
