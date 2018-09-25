@@ -2,7 +2,7 @@ import React from 'react';
 import moment from "moment";
 import VoteComment from "./VoteComment.js";
 
-const ListComment = ({comment, user}) => {
+const ListComment = ({comment, user, deleteComment}) => {
   return (
     <div className="comment" key={comment._id}>
       <span className="comment-heading">
@@ -17,7 +17,7 @@ const ListComment = ({comment, user}) => {
         {user.username === comment.created_by.username && (
           <button
             className="delete-comment"
-            onClick={() => this.deleteComment(comment._id)}
+            onClick={() => deleteComment(comment._id)}
           >
             Delete Comment
                   </button>

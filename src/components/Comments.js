@@ -15,6 +15,7 @@ class Comments extends Component {
   };
 
   render() {
+    console.log(this.state)
     const { comments } = this.state;
     const filteredComments = comments
       .concat(this.state.addedComments)
@@ -34,7 +35,7 @@ class Comments extends Component {
           addComment={this.addComment}
         />
         {filteredComments.map((comment) => {
-          return <ListComment user={this.props.user} comment={comment} key={comment._id} />;
+          return <ListComment user={this.props.user} comment={comment} key={comment._id} deleteComment={this.deleteComment}/>;
         })}
       </div>
     );
