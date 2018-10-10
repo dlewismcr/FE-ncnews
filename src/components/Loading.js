@@ -4,7 +4,7 @@ import "./Loading.css";
 const Loading = () => {
   return (
     <div className="loading-text">
-      Loading...
+      Loading articles...
     </div>
   );
 };

@@ -26,10 +26,6 @@ class Articles extends Component {
     if (this.state.loading)
       return (
         <Loading/>
-        // <div>
-        //   <br />
-        //   Loading...
-        // </div>
       );
     if (this.state.err)
       return (
@@ -59,15 +55,11 @@ class Articles extends Component {
 
   componentDidMount() {
     this.loadArticles();
-    this.setState({
-      loading: false
-    });
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.topic !== this.props.topic) {
       this.loadArticles();
-      this.setState({ loading: false });
     }
   }
 
@@ -75,14 +67,14 @@ class Articles extends Component {
     if (this.props.topic !== "") {
       api.fetchArticlesByTopic(this.props.topic).then(res => {
         if (res.articles) {
-          this.setState({ articles: res.articles });
+          this.setState({ articles: res.articles, loading: false });
         } else {
           this.setState({ err: res.message.message });
         }
       });
     } else {
       api.fetchArticles().then(res => {
-        this.setState({ articles: res.articles });
+        this.setState({ articles: res.articles, loading: false });
       });
     }
   };
