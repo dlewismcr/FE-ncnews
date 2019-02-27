@@ -1,0 +1,16 @@
+.loadingModal {
+  margin: 5% 0 0 0;
+}
+
+.loadingModalTitle {
+   font-family: "Audiowide", cursive;
+   color: #006c84;
+  font-size: 2em;
+  margin: 0 auto;
+  padding-top: 3%;
+}
+
+.loadingSpinner {
+  height: 60px;
+  margin: 5px 0 15px;
+}
