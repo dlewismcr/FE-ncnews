@@ -1,11 +1,9 @@
 import React, { Component, Redirect } from "react";
-// import PT from "prop-types";
 import * as api from "../api.js";
 import moment from "moment";
 import AddArticle from "./AddArticle";
 import ListArticle from "./ListArticle";
 import PropTypes from "prop-types";
-// import Loading from "./Original-Loading.js";
 import LoadingModal from "./LoadingModal.jsx";
 
 
@@ -26,7 +24,6 @@ class Articles extends Component {
     allArticles.reverse();
     if (this.state.loading)
       return (
-        // <Loading/>
         <LoadingModal/>
       );
     if (this.state.err)
