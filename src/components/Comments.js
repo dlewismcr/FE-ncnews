@@ -3,19 +3,18 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as api from "../api.js";
 import moment from "moment";
-
-import AddComment from "./AddComment.js";
 import ListComment from "./ListComment";
+import AddCommentModal from "./AddCommentModal";
 
 class Comments extends Component {
   state = {
     comments: [],
     deletedComments: [],
-    addedComments: []
+    addedComments: [],
+    addCommentModalShow: false
   };
 
   render() {
-    console.log(this.state)
     const { comments } = this.state;
     const filteredComments = comments
       .concat(this.state.addedComments)
@@ -29,13 +28,31 @@ class Comments extends Component {
     return (
       <div className="Comments">
         <br />
-        <AddComment
-          articleId={this.props.articleId}
-          user={this.props.user}
+        <AddCommentModal
           addComment={this.addComment}
+          articleId={this.props.articleId}
+          show={this.state.addCommentModalShow}
+          onHide={this.toggleAddCommentModal}
         />
-        {filteredComments.map((comment) => {
-          return <ListComment user={this.props.user} comment={comment} key={comment._id} deleteComment={this.deleteComment}/>;
+        {!this.state.addCommentModalShow && (
+          <button
+            title="Add Comment"
+            size="lg"
+            className="addCommentBtn"
+            onClick={this.toggleAddCommentModal}
+          >
+            <i className="fas fa-pen addCommentBtnIcon" />
+          </button>
+        )}
+        {filteredComments.map(comment => {
+          return (
+            <ListComment
+              user={this.props.user}
+              comment={comment}
+              key={comment._id}
+              deleteComment={this.deleteComment}
+            />
+          );
         })}
       </div>
     );
@@ -51,7 +68,8 @@ class Comments extends Component {
       .then(res => this.setState({ comments: res.comment }));
   };
 
-  addComment = (articleId, commentText, userId) => {
+  addComment = (articleId, commentText) => {
+    const userId = this.props.user._id;
     api.addComment(articleId, commentText, userId).then(res => {
       const addedComments = [...this.state.addedComments].concat(res);
       this.setState({ addedComments });
@@ -65,6 +83,11 @@ class Comments extends Component {
       deletedComments: deleted
     });
     api.deleteComment(commentId);
+  };
+
+  toggleAddCommentModal = () => {
+    const show = this.state.addCommentModalShow;
+    this.setState({ addCommentModalShow: !show });
   };
 }
 

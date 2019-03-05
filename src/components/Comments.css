@@ -1,3 +1,21 @@
+.addCommentBtn {
+  position: fixed;
+  z-index: 10;
+  right: 3vh;
+  bottom: 3vh;
+  border-radius: 50%;
+  border: 0;
+  background-color:#006c84;
+}
+
+.addCommentBtnIcon {
+  align-items: center;
+  justify-content: center;
+  font-size: 3.4vh;
+  padding: 2vh;
+  color: white;
+}
+
 .Comments {
   margin-top: 5px;
   background-color: #f0f8ff;
