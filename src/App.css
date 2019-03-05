@@ -25,6 +25,11 @@ a:link {
   background-color: red;
 }
 
+.required {
+  font-size: 0.9rem;
+  color:#ff6666;
+}
+
 .voteup {
   background-color: rgb(104, 255, 104);
 }

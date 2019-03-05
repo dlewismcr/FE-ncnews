@@ -26,7 +26,11 @@ class App extends Component {
         <NavLinks />
         <Switch>
           <Route exact path="/" render={() => <Articles topic="" />} />
-          <Route exact path="/articles" render={() => <Articles topic="" />} />
+          <Route
+            exact
+            path="/articles"
+            render={() => <Articles topic="" user={this.state.user} />}
+          />
           <Route
             path="/articles/:article_id"
             render={props => (

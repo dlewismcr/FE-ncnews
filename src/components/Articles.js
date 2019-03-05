@@ -1,10 +1,11 @@
 import React, { Component, Redirect } from "react";
 import * as api from "../api.js";
 import moment from "moment";
-import AddArticle from "./AddArticle";
 import ListArticle from "./ListArticle";
 import PropTypes from "prop-types";
 import LoadingModal from "./LoadingModal.jsx";
+import AddArticleModal from "./AddArticleModal.js";
+import "./Articles.css";
 
 
 class Articles extends Component {
@@ -12,7 +13,8 @@ class Articles extends Component {
     articles: [],
     addedArticles: [],
     err: null,
-    loading: true
+    loading: true,
+    addArticleModalShow: false
   };
 
   render() {
@@ -38,15 +40,23 @@ class Articles extends Component {
     else
       return (
         <div className="Articles">
-          {this.props.topic !== "" && (
-            <AddArticle
-              user={this.props.user}
-              topic={this.props.topic}
-              addArticle={this.addArticle}
-            />
+          <AddArticleModal
+            addArticle={this.addArticle}
+            show={this.state.addArticleModalShow}
+            onHide={this.toggleAddArticleModal}
+          />
+          {!this.state.addArticleModalShow && (
+            <button
+              title="Add Article"
+              size="lg"
+              className="addArticleBtn"
+              onClick={this.toggleAddArticleModal}
+            >
+              <i className="fas fa-plus addArticleBtnIcon" />
+            </button>
           )}
           {allArticles.map(article => {
-          return <ListArticle key={article._id}article={article} />;
+            return <ListArticle key={article._id} article={article} />;
           })}
         </div>
       );
@@ -78,12 +88,17 @@ class Articles extends Component {
     }
   };
 
-  addArticle = (title, body, user) => {
-    api.addArticle(this.props.topic, title, body, user).then(res => {
+  addArticle = (topic, title, body) => {
+    api.addArticle(topic, title, body, this.props.user._id).then(res => {
       const addedArticles = [...this.state.addedArticles].concat(res);
       this.setState({ addedArticles });
     });
   };
+
+  toggleAddArticleModal = () => {
+    const show = this.state.addArticleModalShow;
+    this.setState({addArticleModalShow: !show});
+  }
 }
 
 Articles.propTypes = {
