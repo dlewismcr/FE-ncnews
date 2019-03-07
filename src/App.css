@@ -10,15 +10,7 @@ a:link {
 .App {
   text-align: center;
   padding: 10px 25px;
-  background-color: #006c84;
-}
-
-.App-title {
-  margin: 10px;
-  font-size: 50px;
-  font-family: "Audiowide", cursive;
-  font-weight: 400;
-  color: #d7cbbf;
+  /* background-color: #006c84; */
 }
 
 .nomatch {

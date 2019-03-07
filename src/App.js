@@ -3,8 +3,8 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Articles from "./components/Articles";
 import Article from "./components/Article";
-import NavLinks from "./components/NavLinks";
 import NoMatch from "./components/NoMatch";
+import NavBar from "./components/NavBar";
 
 class App extends Component {
   state = {
@@ -20,10 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Northcoders News</h1>
-        </header>
-        <NavLinks />
+        <NavBar/>
         <Switch>
           <Route exact path="/" render={() => <Articles topic="" />} />
           <Route

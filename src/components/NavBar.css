@@ -1,0 +1,27 @@
+.App-title {
+  margin-bottom: 10px;
+  font-size: 2em;
+  font-family: "Audiowide", cursive;
+  font-weight: 400;
+  color: #d7cbbf;
+}
+
+.link {
+  font-size: 1.3rem;
+  color: #d0e8f0;
+  margin-left:10px;
+  
+}
+
+.link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+ .links {
+  margin: 7px 0 0 20px;
+ }
+
+ .navbar {
+  background-color: #006c84;
+ }
