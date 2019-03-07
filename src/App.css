@@ -22,18 +22,41 @@ a:link {
   color:#ff6666;
 }
 
-.voteup {
-  background-color: rgb(104, 255, 104);
+.vote, .delete-comment {
+  height: 60px;
+  width: 60px;
+  /* padding-top: 3px; */
+  /* margin-top:3px; */
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
 }
 
-.votedown {
-  background-color: rgb(255, 87, 87);
+.delete-comment {
+  font-size: 1.5rem;
 }
 
-.vote {
-   height: 33px;
-  width: 40px;
-  padding-top: 3px;
-  border-radius: 5px;
-  box-shadow: 2px 2px rgb(88, 88, 88);
+.vote-num {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.fa-angle-up,.fa-angle-down {
+  font-size: 3rem;
+}
+
+.fa-undo {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+button:disabled {
+  color: hsl(0, 0%, 60%);
+}
+
+.fa-angle-up:hover,.fa-angle-down:hover,.delete-comment:hover,.fa-undo:hover {
+  color: hsl(0, 0%, 60%);
 }

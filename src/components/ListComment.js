@@ -19,8 +19,8 @@ const ListComment = ({comment, user, deleteComment}) => {
             className="delete-comment"
             onClick={() => deleteComment(comment._id)}
           >
-            Delete Comment
-                  </button>
+            <i className="fas fa-trash-alt" />
+          </button>
         )}
       </span>
       <p>{comment.body}</p>

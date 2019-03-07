@@ -14,30 +14,36 @@ class VoteArticle extends Component {
         <div className="votecount">
           Article Votes
           <br />
-          <div className="count">{this.props.votes + this.state.userVote}</div>
+          <div className="count">
+            {this.props.votes + this.state.userVote}
+          </div>
         </div>
         <span>
           <button
-            className="vote voteup"
+            className="vote"
             disabled={this.state.userVote === -1 ? true : false}
             onClick={() => this.articleVote("up")}
           >
-            {this.state.userVote === 1 ? (
-              <i className="material-icons">undo</i>
-            ) : (
-              <i className="material-icons">thumb_up</i>
-            )}
+            <i
+              className={
+                this.state.userVote === 1
+                  ? "fas fa-undo"
+                  : "fas fa-angle-up"
+              }
+            />
           </button>
           <button
-            className="vote votedown"
+            className="vote"
             disabled={this.state.userVote === 1 ? true : false}
             onClick={() => this.articleVote("down")}
           >
-            {this.state.userVote === -1 ? (
-              <i className="material-icons">undo</i>
-            ) : (
-              <i className="material-icons">thumb_down</i>
-            )}
+            <i
+              className={
+                this.state.userVote === -1
+                  ? "fas fa-undo"
+                  : "fas fa-angle-down"
+              }
+            />
           </button>
         </span>
       </div>

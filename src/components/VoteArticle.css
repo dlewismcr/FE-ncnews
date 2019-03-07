@@ -1,4 +1,4 @@
-.article-vote {
+/* .article-vote {
   display: grid;
   grid-template: 1fr 1fr / 1fr;
   grid-template-areas: "count" "vote";
@@ -17,12 +17,12 @@
   font-size: 1.2em;
   font-weight: 900;
   margin-top: 12px;
-}
+} */
 
-.vote {
+/* .vote {
   grid-area: vote;
   margin-top: 12px;
-}
+} */
 
 .votedown {
   margin-left: 8px;

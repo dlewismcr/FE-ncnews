@@ -9,36 +9,40 @@ class VoteComment extends Component {
   };
   render() {
     return (
-      <div className="VoteComment">
-        <span className="commentSpan">
-          Votes: {this.props.votes + this.state.comVote}{" "}
-          <button
-            className="vote voteup"
-            disabled={this.state.comVote === -1 ? true : false}
-            onClick={() => {
-              this.commentVote("up");
-            }}
-          >
-            {this.state.comVote === 1 ? (
-              <i className="material-icons">undo</i>
-            ) : (
-              <i className="material-icons">thumb_up</i>
-            )}
-          </button>{" "}
-          <button
-            className="vote votedown articleVoteDown"
-            disabled={this.state.comVote === 1 ? true : false}
-            onClick={() => {
-              this.commentVote("down");
-            }}
-          >
-            {this.state.comVote === -1 ? (
-              <i className="material-icons">undo</i>
-            ) : (
-              <i className="material-icons">thumb_down</i>
-            )}
-          </button>
-        </span>
+      <div className="vote-comment">
+        <button
+          className="vote"
+          disabled={this.state.comVote === -1 ? true : false}
+          onClick={() => {
+            this.commentVote("up");
+          }}
+        >
+          <i
+            className={
+              this.state.comVote === 1
+                ? "fas fa-undo"
+                : "fas fa-angle-up"
+            }
+          />
+        </button>
+        <br />
+        <p className="vote-num">{this.props.votes + this.state.comVote}</p>
+        <br />
+        <button
+          className="vote"
+          disabled={this.state.comVote === 1 ? true : false}
+          onClick={() => {
+            this.commentVote("down");
+          }}
+        >
+          <i
+            className={
+              this.state.comVote === -1
+                ? "fas fa-undo"
+                : "fas fa-angle-down"
+            }
+          />
+        </button>
       </div>
     );
   }

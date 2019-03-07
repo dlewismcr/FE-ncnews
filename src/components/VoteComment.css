@@ -1,11 +1,5 @@
-.articleVoteDown{
-  margin-left: 2px;
-}
-.commentSpan{
+.comment-span{
   font-size: 19px;
   vertical-align: middle;
 }
 
-.vote{
-  margin-top:3px;
-}
