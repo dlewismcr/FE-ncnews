@@ -39,7 +39,7 @@ class Articles extends Component {
       );
     else
       return (
-        <div className="Articles">
+        <div className="articles">
           <AddArticleModal
             addArticle={this.addArticle}
             show={this.state.addArticleModalShow}

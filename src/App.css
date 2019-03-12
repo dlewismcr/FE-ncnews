@@ -7,10 +7,10 @@ a:link {
   text-decoration: none;
 }
 
-.App {
-  text-align: center;
-  padding: 10px 25px;
-  /* background-color: #006c84; */
+.app {
+  padding: 86px 10px 10px;
+  background-color:rgb(243, 243, 243);
+  overflow: hidden;
 }
 
 .nomatch {
@@ -25,18 +25,12 @@ a:link {
 .vote, .delete-comment {
   height: 60px;
   width: 60px;
-  /* padding-top: 3px; */
-  /* margin-top:3px; */
   background-color: Transparent;
   background-repeat:no-repeat;
   border: none;
   cursor:pointer;
   overflow: hidden;
   outline:none;
-}
-
-.delete-comment {
-  font-size: 1.5rem;
 }
 
 .vote-num {

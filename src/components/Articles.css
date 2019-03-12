@@ -15,3 +15,7 @@
   padding: 1vh;
   color: white;
 }
+
+.articles {
+  overflow: hidden;
+}

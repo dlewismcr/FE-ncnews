@@ -9,7 +9,7 @@ const NavBar = () => {
   return (
     <div>
       <>
-        <Navbar expand="lg" fixed="top" className="navbar">
+        <Navbar expand="lg" fixed="top">
           <Navbar.Brand>
             <span className="App-title">Northcoders News</span>
           </Navbar.Brand>
