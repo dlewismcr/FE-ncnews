@@ -4,7 +4,7 @@ import VoteComment from "./VoteComment.js";
 
 const ListComment = ({comment, user, deleteComment}) => {
   return (
-    <div className="comment" key={comment._id}>
+    <div className="list-comment" key={comment._id}>
       <span className="comment-heading">
         {comment.created_by.username}
         {": "}
@@ -23,7 +23,7 @@ const ListComment = ({comment, user, deleteComment}) => {
           </button>
         )}
       </span>
-      <p>{comment.body}</p>
+      <p className="comment-body">{comment.body}</p>
       <VoteComment
         votes={comment.votes}
         commentId={comment._id}

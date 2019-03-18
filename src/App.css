@@ -9,8 +9,12 @@ a:link {
 
 .app {
   padding: 86px 10px 10px;
-  background-color:rgb(243, 243, 243);
+  background-color: #D9DEE6;
   overflow: hidden;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
 }
 
 .nomatch {
@@ -22,35 +26,4 @@ a:link {
   color:#ff6666;
 }
 
-.vote, .delete-comment {
-  height: 60px;
-  width: 60px;
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
-  outline:none;
-}
 
-.vote-num {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.fa-angle-up,.fa-angle-down {
-  font-size: 3rem;
-}
-
-.fa-undo {
-  font-size: 1.7rem;
-  font-weight: bold;
-}
-
-button:disabled {
-  color: hsl(0, 0%, 60%);
-}
-
-.fa-angle-up:hover,.fa-angle-down:hover,.delete-comment:hover,.fa-undo:hover {
-  color: hsl(0, 0%, 60%);
-}

@@ -1,10 +1,9 @@
 .App-title {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
   font-size: 2em;
   font-family: "Audiowide", cursive;
   font-weight: 400;
   color: #d7cbbf;
-    /* color: lightgrey; */
 }
 
 .link {
@@ -24,6 +23,6 @@
  }
 
  .navbar {
-   padding: 0;
+  padding: 0;
   background-color: #006c84;
  }

@@ -2,7 +2,7 @@ import "./Article.css";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as api from "../api.js";
-import Vote from "./VoteArticle.js";
+import VoteArticle from "./VoteArticle.js";
 import Comments from "./Comments.js";
 import moment from "moment";
 
@@ -14,12 +14,11 @@ class Article extends Component {
     if (Object.keys(this.state.article).length !== 0) {
       return (
         <div>
-          <br />
-          <div className="Article">
-            <div className="Article-title">
-              <h2 className="title-text">{this.state.article.title}</h2>
-              <span>
-                {this.state.article.created_by.username}
+          <div className="article radius">
+            <div className="article-title">
+              <h2 className="article-title-text">{this.state.article.title}{" "} 
+              <span className="article-author">
+                Posted by {this.state.article.created_by.username}
                 {": "}
                 {moment(this.state.article.created_at)
                   .format("DD/MM/YYYY HH:mm")
@@ -27,13 +26,12 @@ class Article extends Component {
                 {" ("}
                 {moment(this.state.article.created_at).fromNow()}
                 {") "}
-              </span>
+                </span></h2>
             </div>
             <div className="article-body">
               <p className="article-text">{this.state.article.body}</p>
             </div>
-            <Vote
-              className="Vote"
+            <VoteArticle
               articleId={this.state.article._id}
               votes={this.state.article.votes}
             />

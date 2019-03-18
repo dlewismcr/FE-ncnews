@@ -26,7 +26,7 @@ class Comments extends Component {
     });
     filteredComments.reverse();
     return (
-      <div className="Comments">
+      <div className="comments radius">
         <br />
         <AddCommentModal
           addComment={this.addComment}

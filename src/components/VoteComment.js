@@ -1,4 +1,3 @@
-import "./VoteComment.css";
 import React, { Component } from "react";
 import * as api from "../api.js";
 import PropTypes from "prop-types";
@@ -9,9 +8,9 @@ class VoteComment extends Component {
   };
   render() {
     return (
-      <div className="vote-comment">
+      <div className="vote vote-comment">
         <button
-          className="vote"
+          className="vote-angle vote-up"
           disabled={this.state.comVote === -1 ? true : false}
           onClick={() => {
             this.commentVote("up");
@@ -19,17 +18,13 @@ class VoteComment extends Component {
         >
           <i
             className={
-              this.state.comVote === 1
-                ? "fas fa-undo"
-                : "fas fa-angle-up"
+              this.state.comVote === 1 ? "fas fa-undo" : "fas fa-angle-up"
             }
           />
         </button>
-        <br />
-        <p className="vote-num">{this.props.votes + this.state.comVote}</p>
-        <br />
+        <p className="vote-num vote-comment-num">{this.props.votes + this.state.comVote}</p>
         <button
-          className="vote"
+          className="vote-angle vote-down"
           disabled={this.state.comVote === 1 ? true : false}
           onClick={() => {
             this.commentVote("down");

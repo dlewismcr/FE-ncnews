@@ -16,26 +16,37 @@
   color: white;
 }
 
-.Comments {
+.comments {
   margin-top: 5px;
-  background-color: #f0f8ff;
-  border-radius: 10px;
-  padding: 4px;
-  min-height: 382px;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 97%);
 }
 
-.comment {
-  padding-top: 10px;
-  border-top: 1px solid rgb(59, 59, 59);
+.list-comment {
+  margin-bottom: 10px;
+  border-bottom: 1px solid hsl(0, 0%, 80%);
+  display: grid;
+  grid-template: 1fr 4fr/ 1fr 20fr;
+  grid-template-areas: "vote title" "vote comment";
+  max-height: 15%;
+  padding: 0 13px 0 0;
 }
 
 .comment-heading {
-  font-weight: 600;
+  font-size: 1.3rem;
 }
 
-.delete-comment {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-left: 10px;
-  border-radius: 3px;
+.comment-body {
+  grid: comment;
+  text-align: justify;
+  text-justify: inter-character;
+  overflow-y: auto;
+}
+
+.vote-comment-num{
+  font-size: 2rem;
+}
+
+.fa-trash-alt {
+  font-size: 1.2rem;
 }
