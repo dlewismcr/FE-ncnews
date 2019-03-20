@@ -9,14 +9,14 @@ class LoadingModal extends Component {
         <Modal
           size="sm"
           dialogClassName="modal-50w"
-          className={"loadingModal"}
+          className={"loading-modal"}
           show={true}
         >
-          <Modal.Title className={"loadingModalTitle"}>
+          <Modal.Title className={"loading-modal-title"}>
             Loading...
           </Modal.Title>
           <img
-            className={"loadingSpinner"}
+            className={"loading-spinner"}
             src="/images/Spin-1s-200px.svg"
             alt="loading spinner"
           />

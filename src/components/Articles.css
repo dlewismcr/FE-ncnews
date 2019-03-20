@@ -1,4 +1,4 @@
-.addArticleBtn {
+.add-article-btn {
   position: fixed;
   z-index: 10;
   right: 3vh;
@@ -8,7 +8,7 @@
   background-color: #006c84;
 }
 
-.addArticleBtnIcon {
+.add-article-btn-icon {
   align-items: center;
   justify-content: center;
   font-size: 4vh;

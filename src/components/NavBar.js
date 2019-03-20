@@ -11,7 +11,7 @@ const NavBar = () => {
       <>
         <Navbar expand="lg" fixed="top">
           <Navbar.Brand>
-            <span className="App-title">Northcoders News</span>
+            <span className="app-title">Northcoders News</span>
           </Navbar.Brand>
           <Nav className="mr-auto links">
             <NavLink exact to="/articles" activeStyle={activeStyle}>

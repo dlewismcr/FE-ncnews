@@ -49,10 +49,10 @@ class Articles extends Component {
             <button
               title="Add Article"
               size="lg"
-              className="addArticleBtn"
+              className="add-article-btn"
               onClick={this.toggleAddArticleModal}
             >
-              <i className="fas fa-plus addArticleBtnIcon" />
+              <i className="fas fa-plus add-article-btn-icon" />
             </button>
           )}
           {allArticles.map(article => {
