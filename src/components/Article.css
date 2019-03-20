@@ -1,11 +1,11 @@
 .article {
   background-color: white;
-  border-radius: 5px;
+  border-radius: 3px;
   display: grid;
-  grid-template: 1fr 3fr/ 1fr 20fr;
+  grid-template: 1fr 3fr/ 1fr 25fr;
   grid-template-areas: "vote title" "vote article";
   margin-top: 10px;
-  padding: 0 13px 0 0;
+  padding: 0 20px 0 0;
 }
 
 .article-title {
@@ -39,6 +39,7 @@
   margin-top: 35px;
   padding: 0 0 0 3px;
   height: 100px;
+  min-width: 50px;
   display: grid;
   grid-template-areas: "vote-up" "vote-num" "vote-down";
   flex-direction: column;
@@ -59,6 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 40px;
   height: 20px;
   margin: 0;
   font-size: 2.55rem;
@@ -71,7 +73,7 @@
 
 .vote-angle,
 .delete-comment {
-  width: 60px;
+  width: 36px;
   height: 60px;
   background-color: Transparent;
   background-repeat: no-repeat;

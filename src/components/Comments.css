@@ -18,7 +18,7 @@
 
 .comments {
   margin-top: 5px;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: hsl(0, 0%, 97%);
 }
 
@@ -26,10 +26,10 @@
   margin-bottom: 10px;
   border-bottom: 1px solid hsl(0, 0%, 80%);
   display: grid;
-  grid-template: 1fr 4fr/ 1fr 20fr;
+  grid-template: 1fr 4fr/ 1fr 25fr;
   grid-template-areas: "vote title" "vote comment";
   max-height: 15%;
-  padding: 0 13px 0 0;
+  padding: 0 20px 0 0;
 }
 
 .comment-heading {
@@ -40,7 +40,8 @@
   grid: comment;
   text-align: justify;
   text-justify: inter-character;
-  overflow-y: auto;
+  overflow: auto;
+  margin: 0;
 }
 
 .vote-comment-num{

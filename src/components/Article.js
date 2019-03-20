@@ -14,7 +14,7 @@ class Article extends Component {
     if (Object.keys(this.state.article).length !== 0) {
       return (
         <div>
-          <div className="article radius">
+          <div className="article">
             <div className="article-title">
               <h2 className="article-title-text">{this.state.article.title}{" "} 
               <span className="article-author">
