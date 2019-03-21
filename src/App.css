@@ -7,6 +7,10 @@ a:link {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: none !important;
+}
+
 .app {
   padding: 86px 10px 10px;
   background-color: #D9DEE6;
