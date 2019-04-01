@@ -28,8 +28,11 @@ const ListArticle = ({article}) => {
       <Link to={`/articles/${article._id}`} votes={article.votes}>
         <div className="list-article">
           <div className="list-article-title">
-            <h3 className="list-article-title-text">
-              {article.title}{" "}
+            <img
+              className="list-article-img"
+              src={renderSwitch(article.created_by.username)}
+              alt="user avatar"
+            /> {" "}
               <span className="list-article-author">
                 Posted by: {article.created_by.username}
                 {", "}
@@ -38,22 +41,23 @@ const ListArticle = ({article}) => {
               <span className="list-article-likes">
                 <i className="fas fa-comment-alt" />{" "}{article.commentCount} {" "}<i className="fas fa-heart" /> {article.votes}
               </span>{" "}
-            </h3>
-          </div>
-          <div className="list-article-profile">
-            <img
-              className="list-article-img"
-              src={renderSwitch(article.created_by.username)}
-              alt="user avatar"
-            />
+            <h1 className="list-article-title-text">
+              <LinesEllipsis
+                text={article.title}
+                maxLine="1"
+                ellipsis="..."
+                trimRight
+                basedOn="words"
+              />
+            </h1>
           </div>
           <div className="list-article-body">
             <LinesEllipsis
               text={article.body}
-              maxLine="3"
+              maxLine="4"
               ellipsis="..."
               trimRight
-              basedOn="letters"
+              basedOn="words"
             />
           </div>
         </div>

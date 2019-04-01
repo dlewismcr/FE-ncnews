@@ -1,20 +1,14 @@
 .list-article {
   background-color: white;
   border-radius: 3px;
-  height: 120px;
-  margin-top: 7px;
-  padding: 7px;
-  display: grid;
-  grid-template: 1fr 3fr  / 1fr 20fr;
-  grid-template-areas:
-  "profile title"
-  "profile body";
+  height: 184px;
+  margin-top: 8px;
+  padding: 9px;
   border: 1px solid hsl(0, 0%, 80%);
 }
 
 .list-article-author {
-  font-size: 0.65em;
-  font-weight: normal;
+  font-size: 1.07em;
   opacity: 0.8;
 }
 
@@ -25,18 +19,17 @@
 
 .list-article-body {
   grid-area: body;
-  text-align: justify;
-  text-justify: inter-character;
   overflow: hidden;
   margin: 0px;
-  padding: 0 5px 0;
+  padding: 5px 5px 0;
 }
 
 .list-article-title {
+  overflow: hidden;
   font-size: 0.8em;
-  grid-area: title;
   margin: 0px;
   padding: 0 5px 0;
+  border-bottom: 1px solid hsl(0, 0%, 85%);
 }
 
 .list-article-title-text{
@@ -58,15 +51,12 @@
 }
 
 .list-article-img {
-  grid-area: avatar;
-  margin-top: 15%;
-  height:70%; 
-  width: 100%;
+  height: 30px;
+  min-width: 30px;
   object-fit: contain;
 }
 
 .list-article-likes {
-  grid-area: likes;
   float: right;
   font-size: 1.0rem;
 }
