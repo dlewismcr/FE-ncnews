@@ -17,7 +17,7 @@ class LoadingModal extends Component {
           </Modal.Title>
           <img
             className={"loading-spinner"}
-            src="/images/Spin-1s-200px.svg"
+            src="/images/Reload-1.2s-200px.svg"
             alt="loading spinner"
           />
         </Modal>
