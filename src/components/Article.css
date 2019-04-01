@@ -64,7 +64,6 @@
   height: 20px;
   margin: 0;
   font-size: 2.55rem;
-  font-weight: bold;
 }
 
 .vote-down {
@@ -81,6 +80,7 @@
   cursor: pointer;
   overflow: hidden;
   outline: none;
+  color: hsl(0, 0%, 20%)
 }
 
 .delete-comment {
