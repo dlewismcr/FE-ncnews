@@ -46,8 +46,7 @@
 }
 
 .list-article:hover {
-  filter: brightness(90%);
-  text-decoration: none;
+  filter: brightness(97%);
 }
 
 .list-article-img {
