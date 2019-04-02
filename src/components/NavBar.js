@@ -4,12 +4,12 @@ import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css"
 
-const activeStyle = { opacity: 0.5 };
+const activeStyle = { opacity: 0.6};
 const NavBar = () => {
   return (
     <div>
       <>
-        <Navbar expand="lg" fixed="top">
+        <Navbar fixed="top">
           <Navbar.Brand>
             <span className="app-title">Northcoders News</span>
           </Navbar.Brand>
@@ -19,21 +19,21 @@ const NavBar = () => {
             </NavLink>
             <NavLink
               to="/topics/coding/articles"
-              className="link"
+              className="codingLink"
               activeStyle={activeStyle}
             >
               <span className="link">Coding</span>
             </NavLink>
             <NavLink
               to="/topics/cooking/articles"
-              className="link cookingLink"
+              className="cookingLink"
               activeStyle={activeStyle}
             >
               <span className="link">Cooking</span>
             </NavLink>
             <NavLink
               to="/topics/football/articles"
-              className="link footballLink"
+              className="footballLink"
               activeStyle={activeStyle}
             >
               <span className="link">Football</span>
