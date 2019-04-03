@@ -24,7 +24,5 @@
 .navbar {
   border-bottom: 1px solid hsl(0, 0%, 75%);
   height: 60px;
-  background: #d7f6fd;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #D9DEE6, #d7f6fd);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #D9DEE6, #d7f6fd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #d7f6fd;
 }
