@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from "moment";
 import VoteComment from "./VoteComment.js";
+import "./ListComment.css"
 
 const ListComment = ({comment, user, deleteComment}) => {
   return (
