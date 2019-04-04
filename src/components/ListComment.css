@@ -1,3 +1,7 @@
 .list-comment {
   min-height: 140px;
 }
+
+.comment-heading {
+  margin-bottom: 6px;
+}
