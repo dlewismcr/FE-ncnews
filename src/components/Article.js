@@ -16,7 +16,9 @@ class Article extends Component {
         <div>
           <div className="article">
             <div className="article-title">
-              <h2 className="article-title-text">{this.state.article.title}</h2>
+              <h2 className="article-title-text">
+                {this.state.article.title}
+              </h2>
               <p className="article-author">
                 Posted by {this.state.article.created_by.username}
                 {": "}
@@ -26,7 +28,7 @@ class Article extends Component {
                 {" ("}
                 {moment(this.state.article.created_at).fromNow()}
                 {") "}
-                </p>
+              </p>
             </div>
             <div className="article-body">
               <p className="article-text">{this.state.article.body}</p>
@@ -36,7 +38,11 @@ class Article extends Component {
               votes={this.state.article.votes}
             />
           </div>
-          <Comments articleId={this.state.article._id} user={this.props.user} />
+          <Comments
+            articleId={this.state.article._id}
+            user={this.props.user}
+            sortContent={this.props.sortContent}
+          />
         </div>
       );
     } else return null;
@@ -54,6 +60,7 @@ class Article extends Component {
 }
     Article.propTypes = {
       articleId: PropTypes.string,
+      sortContent: PropTypes.func,
       user: PropTypes.object
     };
 

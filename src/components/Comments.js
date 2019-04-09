@@ -2,7 +2,6 @@ import "./Comments.css";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as api from "../api.js";
-import moment from "moment";
 import ListComment from "./ListComment";
 import AddCommentModal from "./AddCommentModal";
 
@@ -16,15 +15,13 @@ class Comments extends Component {
 
   render() {
     const { comments } = this.state;
+    const {sortContent} = this.props;
     const filteredComments = comments
       .concat(this.state.addedComments)
       .filter(comment => {
         return !this.state.deletedComments.includes(comment._id);
       });
-    filteredComments.sort(function(a, b) {
-      return moment(b.created_at).isBefore(a.created_at);
-    });
-    filteredComments.reverse();
+    const sortedComments = sortContent(filteredComments);
     return (
       <div className="comments radius">
         <AddCommentModal
@@ -43,7 +40,7 @@ class Comments extends Component {
             <i className="fas fa-pen addCommentBtnIcon" />
           </button>
         )}
-        {filteredComments.map(comment => {
+        {sortedComments.map(comment => {
           return (
             <ListComment
               user={this.props.user}
@@ -92,6 +89,7 @@ class Comments extends Component {
 
 Comments.propTypes = {
   articleId: PropTypes.string,
+  sortContent: PropTypes.func,
   user: PropTypes.object
 };
 

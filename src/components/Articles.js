@@ -1,6 +1,5 @@
 import React, { Component, Redirect } from "react";
 import * as api from "../api.js";
-import moment from "moment";
 import ListArticle from "./ListArticle";
 import PropTypes from "prop-types";
 import LoadingModal from "./LoadingModal.jsx";
@@ -18,12 +17,9 @@ class Articles extends Component {
   };
 
   render() {
-    const { articles, addedArticles } = this.state;
+    const { articles, addedArticles} = this.state;
     const allArticles = articles.concat(addedArticles);
-    allArticles.sort(function(a, b) {
-      return moment(b.created_at).isBefore(a.created_at);
-    });
-    allArticles.reverse();
+    const sortedArticles = this.props.sortContent(allArticles)
     if (this.state.loading)
       return (
         <LoadingModal/>
@@ -55,7 +51,7 @@ class Articles extends Component {
               <i className="fas fa-plus add-article-btn-icon" />
             </button>
           )}
-          {allArticles.map(article => {
+          {sortedArticles.map(article => {
             return <ListArticle key={article._id} article={article} />;
           })}
         </div>
@@ -102,6 +98,7 @@ class Articles extends Component {
 }
 
 Articles.propTypes = {
+  sortContent: PropTypes.func,
   topic: PropTypes.string,
   user: PropTypes.object
 };

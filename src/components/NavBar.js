@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
-import "./NavBar.css"
+import "./NavBar.css";
+import PropTypes from "prop-types";
+import SortOrderDrawer from "./SortOrderDrawer";
 
-const activeStyle = { opacity: 0.6};
-const NavBar = () => {
+const activeStyle = { opacity: 0.6 };
+const NavBar = props => {
   return (
     <div>
       <>
@@ -39,10 +41,16 @@ const NavBar = () => {
               <span className="link">Football</span>
             </NavLink>
           </Nav>
+          <SortOrderDrawer sortBy={props.sortBy} updateSortOrder={props.updateSortOrder}/>
         </Navbar>
       </>
     </div>
   );
+};
+
+NavBar.propTypes = {
+  sortBy: PropTypes.string,
+  updateSortOrder: PropTypes.func
 };
 
 export default NavBar;
