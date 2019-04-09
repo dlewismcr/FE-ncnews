@@ -5,8 +5,8 @@ import moment from "moment";
 import LinesEllipsis from "react-lines-ellipsis";
 
 const ListArticle = ({article}) => {
-  // renderSwitch handles broken original article.created_by.avatar_url links
-  const renderSwitch = username => {
+  // avatarSelector handles broken original article.created_by.avatar_url links
+  const avatarSelector = username => {
     switch (username) {
       case "jessjelly":
       case "happyamy2016":
@@ -30,7 +30,7 @@ const ListArticle = ({article}) => {
           <div className="list-article-title">
             <img
               className="list-article-img"
-              src={renderSwitch(article.created_by.username)}
+              src={avatarSelector(article.created_by.username)}
               alt="user avatar"
             /> {" "}
               <span className="list-article-author">
