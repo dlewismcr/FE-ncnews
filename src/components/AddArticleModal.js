@@ -69,9 +69,16 @@ class AddArticleModal extends Component {
           <Button variant="outline-secondary" onClick={this.props.onHide}>
             Cancel
           </Button>
-          <Button variant="outline-primary" onClick={this.handleSubmit}>
-            Submit Article
+          {!(this.state.titleText && this.state.contentText) && (
+            <Button variant="outline-primary">
+              Submit
+            </Button>
+          )}
+          {(this.state.titleText && this.state.contentText) && (
+          <Button variant="primary" onClick={this.handleSubmit}>
+            Submit
           </Button>
+          )}
         </Modal.Footer>
       </Modal>
     );
@@ -97,15 +104,13 @@ class AddArticleModal extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if(this.state.titleText !== "" && this.state.contentText !== ""){
-      this.props.addArticle(
-        this.state.categoryText.toLowerCase(),
-        this.state.titleText,
-        this.state.contentText
-      );
+    this.props.addArticle(
+      this.state.categoryText.toLowerCase(),
+      this.state.titleText,
+      this.state.contentText
+    );
     this.setState({ titleText: "", contentText: "" });
     this.props.onHide();
-    };
   };
 }
 

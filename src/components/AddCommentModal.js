@@ -45,9 +45,16 @@ class AddCommentModal extends Component {
           <Button variant="outline-secondary" onClick={this.props.onHide}>
             Cancel
           </Button>
-          <Button variant="outline-primary" onClick={this.handleSubmit}>
-            Submit Comment
-          </Button>
+          {!this.state.commentText && (
+            <Button variant="outline-primary">
+              Submit
+            </Button>
+          )}
+          {this.state.commentText && (
+            <Button variant="primary" onClick={this.handleSubmit}>
+              Submit
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     );
@@ -59,14 +66,12 @@ class AddCommentModal extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if(this.state.commentText !== ""){
-      this.props.addComment(
-        this.props.articleId,
-        this.state.commentText
-      );
-      this.setState({ commentText: "" });
-      this.props.onHide();
-    }
+    this.props.addComment(
+      this.props.articleId,
+      this.state.commentText
+    );
+    this.setState({ commentText: "" });
+    this.props.onHide();
   };
 }
 
