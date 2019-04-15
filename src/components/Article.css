@@ -19,8 +19,6 @@
 
 .article-text {
   grid-area: article;
-  text-align: justify;
-  text-justify: inter-character;
 }
 
 .article-title-text {
