@@ -1,7 +1,25 @@
 .list-comment {
-  min-height: 140px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid hsl(0, 0%, 80%);
+  display: grid;
+  grid-template: 1fr 2fr/ 1fr 25fr;
+  grid-template-areas: "vote title" "vote comment";
+  padding: 0 20px 0 0;
 }
 
 .comment-heading {
+  font-size: 1.3rem;
   margin-bottom: 6px;
+}
+
+.comment-body {
+  grid-area: comment;
+}
+
+.vote-comment-num{
+  font-size: 2rem;
+}
+
+.fa-trash-alt {
+  font-size: 1.2rem;
 }
