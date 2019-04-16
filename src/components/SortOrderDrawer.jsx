@@ -66,7 +66,7 @@ class SortOrderDrawer extends React.Component {
         <Sort
           aria-label="Sort"
           className="sort"
-          style={{ fontSize: 33}}
+          style={{ fontSize: 30}}
           onClick={this.toggleDrawer(true)}
         />
         <Drawer

@@ -9,3 +9,9 @@
 .sort {
   margin: 0 25px 0 0;
 }
+
+@media only screen and (min-width: 992px) {
+  .sort {
+    margin: 0 130px 0 0;
+  }
+}
