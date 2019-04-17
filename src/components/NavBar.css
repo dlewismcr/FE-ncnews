@@ -6,11 +6,15 @@
   color: #006C84;
 }
 
+.app-title:visited, .app-title:hover {
+    color: #006C84;
+}
+
 .link {
   font-size: 1.3rem;
   margin: 0 5px;
   padding: 0 0 2px;
-  color: #000;
+  color: #4d4d4d;
 }
 
 .links {
@@ -18,13 +22,13 @@
 }
 
 .link:hover {
-  border-bottom: 5px black solid;
+  color: #c80000;
 }
 
 .navbar {
   border-bottom: 1px solid hsl(0, 0%, 75%);
   height: 60px;
-  background-color: #d7f6fd;
+  background-color: white;
 }
 
 @media only screen and (min-width: 992px) {

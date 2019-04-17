@@ -6,14 +6,16 @@ import "./NavBar.css";
 import PropTypes from "prop-types";
 import SortOrderDrawer from "./SortOrderDrawer";
 
-const activeStyle = { opacity: 0.6 };
+const activeStyle = { fontWeight: "bold" };
 const NavBar = props => {
   return (
     <div>
       <>
         <Navbar fixed="top">
           <Navbar.Brand>
-            <span className="app-title">Northcoders News</span>
+            <a href="/articles" className="app-title">
+              Northcoders News
+            </a>
           </Navbar.Brand>
           <Nav className="mr-auto links">
             <NavLink exact to="/articles" activeStyle={activeStyle}>
@@ -41,7 +43,10 @@ const NavBar = props => {
               <span className="link">Football</span>
             </NavLink>
           </Nav>
-          <SortOrderDrawer sortBy={props.sortBy} updateSortOrder={props.updateSortOrder}/>
+          <SortOrderDrawer
+            sortBy={props.sortBy}
+            updateSortOrder={props.updateSortOrder}
+          />
         </Navbar>
       </>
     </div>
