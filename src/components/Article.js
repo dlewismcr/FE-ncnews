@@ -20,8 +20,19 @@ class Article extends Component {
                 {this.state.article.title}
               </h2>
               <p className="article-author">
-                Posted by {this.state.article.created_by.username}
-                {": "}
+                <img
+                  className="list-article-img"
+                  src={
+                    this.props.avatarSelector(
+                      this.state.article.created_by.username
+                    ) || this.state.article.created_by.avatar_url
+                  }
+                  alt="user avatar"
+                />{" "}
+                Posted by {this.state.article.created_by.name}
+                {" ("}
+                {this.state.article.created_by.username}
+                {"): "}
                 {moment(this.state.article.created_at)
                   .format("DD/MM/YYYY HH:mm")
                   .toString()}
@@ -42,6 +53,7 @@ class Article extends Component {
             articleId={this.state.article._id}
             user={this.props.user}
             sortContent={this.props.sortContent}
+            avatarSelector={this.props.avatarSelector}
           />
         </div>
       );
@@ -58,10 +70,11 @@ class Article extends Component {
     });
   };
 }
-    Article.propTypes = {
-      articleId: PropTypes.string,
-      sortContent: PropTypes.func,
-      user: PropTypes.object
-    };
+Article.propTypes = {
+  articleId: PropTypes.string,
+  sortContent: PropTypes.func,
+  user: PropTypes.object,
+  avatarSelector: PropTypes.func.isRequired
+};
 
 export default Article;

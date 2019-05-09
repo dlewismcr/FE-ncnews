@@ -3,10 +3,19 @@ import moment from "moment";
 import VoteComment from "./VoteComment.js";
 import "./ListComment.css"
 
-const ListComment = ({comment, user, deleteComment}) => {
+const ListComment = ({comment, user, deleteComment, avatarSelector}) => {
   return (
     <div className="list-comment" key={comment._id}>
       <span className="comment-heading">
+      <img
+        className="list-article-img"
+        src={
+          avatarSelector(comment.created_by.username) ||
+          comment.created_by.avatar_url
+        }
+        alt="user avatar"
+      />
+        {" "}
         {comment.created_by.username}
         {": "}
         {moment(comment.created_at)

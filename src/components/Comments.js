@@ -15,7 +15,7 @@ class Comments extends Component {
 
   render() {
     const { comments } = this.state;
-    const {sortContent} = this.props;
+    const {sortContent, avatarSelector} = this.props;
     const filteredComments = comments
       .concat(this.state.addedComments)
       .filter(comment => {
@@ -47,6 +47,7 @@ class Comments extends Component {
               comment={comment}
               key={comment._id}
               deleteComment={this.deleteComment}
+              avatarSelector={avatarSelector}
             />
           );
         })}
@@ -90,7 +91,8 @@ class Comments extends Component {
 Comments.propTypes = {
   articleId: PropTypes.string,
   sortContent: PropTypes.func,
-  user: PropTypes.object
+  user: PropTypes.object,
+  avatarSelector: PropTypes.func.isRequired
 };
 
 export default Comments;
