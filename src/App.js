@@ -30,7 +30,13 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={() => <Articles topic="" sortContent={this.sortContent} />}
+            render={() => (
+              <Articles
+                topic=""
+                sortContent={this.sortContent}
+                avatarSelector={this.avatarSelector}
+              />
+            )}
           />
           <Route
             exact
@@ -40,6 +46,7 @@ class App extends Component {
                 topic=""
                 sortContent={this.sortContent}
                 user={this.state.user}
+                avatarSelector={this.avatarSelector}
               />
             )}
           />
@@ -50,6 +57,7 @@ class App extends Component {
                 articleId={props.match.params.article_id}
                 sortContent={this.sortContent}
                 user={this.state.user}
+                avatarSelector={this.avatarSelector}
               />
             )}
           />
@@ -60,6 +68,7 @@ class App extends Component {
                 topic={props.match.params.topic}
                 sortContent={this.sortContent}
                 user={this.state.user}
+                avatarSelector={this.avatarSelector}
               />
             )}
           />
@@ -89,6 +98,25 @@ class App extends Component {
     this.setState({
       sortBy: order
     });
+  };
+
+  // avatarSelector handles broken original article.created_by.avatar_url links
+  avatarSelector = username => {
+    switch (username) {
+      case "jessjelly":
+      case "happyamy2016":
+        return null;
+      case "weegembump":
+        return "/images/bump.png";
+      case "tickle122":
+        return "/images/tickle.png";
+      case "cooljmessy":
+        return "/images/messy.webp";
+      case "grumpy19":
+        return "/images/grumpy.png";
+      default:
+        return "/images/pngkey.com-shadow-figure-png-4047048.png";
+    };
   };
 }
 

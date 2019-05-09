@@ -52,7 +52,7 @@ class Articles extends Component {
             </button>
           )}
           {sortedArticles.map(article => {
-            return <ListArticle key={article._id} article={article} />;
+            return <ListArticle key={article._id} article={article} avatarSelector={this.props.avatarSelector}/>;
           })}
         </div>
       );
@@ -100,7 +100,8 @@ class Articles extends Component {
 Articles.propTypes = {
   sortContent: PropTypes.func,
   topic: PropTypes.string,
-  user: PropTypes.object
+  user: PropTypes.object,
+  avatarSelector: PropTypes.func.isRequired
 };
 
 export default Articles;
