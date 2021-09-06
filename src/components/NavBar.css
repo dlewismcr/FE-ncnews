@@ -1,9 +1,9 @@
 .app-title {
   margin-bottom: 10px;
   font-size: 2em;
-  font-family: "Audiowide", cursive;
-  font-weight: 400;
-  color: #006C84;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+   color: #006C84;
 }
 
 .app-title:visited, .app-title:hover {
